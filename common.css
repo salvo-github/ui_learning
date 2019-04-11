@@ -1,0 +1,47 @@
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  background-image: url(./media/main/bg.jpg);
+  background-repeat: repeat;
+}
+
+.header {
+  height: 45px;
+  border: 0 solid #979797;
+  width: 100%;
+	background: linear-gradient(180deg, #449587 0%, #2A8676 100%);
+	box-shadow: 0 3px 0 0 rgba(92,186,150,0.5);
+}
+
+.header__logo {
+  float: left;
+  left: 24px;
+}
+
+.header__logo::after {
+  display: block;
+  content: url('./media/logo/logo.svg');
+  height: 24px;
+  width: 24px;
+}
+
+.header__login {
+  float: right;
+}
+
+.main {
+  /* height: 9999px; */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 45px;
+  width: 100%;
+	border: 0 solid #979797;
+  background-color: #2A8676;
+}
