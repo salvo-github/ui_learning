@@ -1,0 +1,7 @@
+.logo {
+  height: 45px;
+}
+.logo__icon::before {
+  content: url("/assets/logo/logo.svg");
+  fill: white;
+}
