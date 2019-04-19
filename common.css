@@ -1,47 +1,90 @@
-html, body {
-  height: 100%;
+html,
+body {
+    height: 100%;
 }
 
 .wrapper {
-  position: relative;
-  height: 100%;
-  background-image: url(./media/main/bg.jpg);
-  background-repeat: repeat;
+    /* position: relative; */
+    height: 100%;
+    background-image: url(./media/main/bg.jpg);
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
-  height: 45px;
-  border: 0 solid #979797;
-  width: 100%;
-	background: linear-gradient(180deg, #449587 0%, #2A8676 100%);
-	box-shadow: 0 3px 0 0 rgba(92,186,150,0.5);
+    /* height: 45px; */
+    border: 0 solid #979797;
+    width: 100%;
+    background: linear-gradient(180deg, #449587 0%, #2A8676 100%);
+    box-shadow: 0 3px 0 0 rgba(92, 186, 150, 0.5);
+    flex: 0 0 45px;
 }
 
-.header__logo {
-  float: left;
-  left: 24px;
+.header__content {
+    height: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header__logo::after {
-  display: block;
-  content: url('./media/logo/logo.svg');
-  height: 24px;
-  width: 24px;
+    padding-left: 24px;
+    display: inline-block;
+    content: url('./media/logo/logo.svg');
+    height: 24px;
+    width: 24px;
 }
 
 .header__login {
-  float: right;
+    padding-right: 20px;
+}
+
+.header__login--logged {
+    color: #ffffff;
+}
+
+.header__login--logged-user {
+    font-style: italic;
+}
+
+.header__login--logged::after {
+    display: inline-block;
+    padding-left: 8px;
+    content: url('./media/login/header-logout.svg');
+    height: 1em;
+    width: 1em;
 }
 
 .main {
-  /* height: 9999px; */
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+}
+
+.main__content {
+    max-width: 800px;
+    flex: 1 1 auto;
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  height: 45px;
-  width: 100%;
-	border: 0 solid #979797;
-  background-color: #2A8676;
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* height: 45px; */
+    flex: 0 0 45px;
+    width: 100%;
+    border: 0 solid #979797;
+    background-color: #2A8676;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__company-info {
+    color: #FFFFFF;
 }
