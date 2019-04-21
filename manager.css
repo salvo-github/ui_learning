@@ -1,0 +1,20 @@
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.chart {
+    max-width: 100%;
+    margin: 20px 0 0;
+    height: 261px;
+    width: 440px;
+}
+
+@media (min-width: 800px) {
+    .chart {
+        margin: 24px 0 0;
+        height: 340px;
+        width: 570px;
+    }
+}
