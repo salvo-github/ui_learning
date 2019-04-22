@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__header-title">Login to “Demo Shop”</h2>
+    </div>
+
+    <div class="modal__content">
+      <form class="login__form" action="">
+        <section class="login__form-section">
+          <div>
+            <p>
+              <label for="login__username">
+                <span>Your login: </span>
+              </label>
+            </p>
+            <p>
+              <input class="form__input-text form__input-text-image form__input-text-image--username" type="text"
+                id="login__username" name="username" required>
+            </p>
+          </div>
+          <div>
+            <p>
+              <label for="login__password">
+                <span>Your password: </span>
+              </label>
+            </p>
+            <p>
+              <input class="form__input-text form__input-text-image form__input-text-image--password" type="password"
+                minlength="8" id="login__password" name="password" required>
+            </p>
+          </div>
+        </section>
+        <p> <button class="button button--login" type="submit">Submit</button> </p>
+      </form>
+    </div>
+
+  </div>
+  </div>
+</body>
+
+</html>
