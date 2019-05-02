@@ -1,0 +1,22 @@
+.select {
+  height: 35px;
+  width: 235px;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 5px;
+}
+
+.select::after {
+  height: 10px;
+  width: 17px;
+}
+
+.select--green {
+  color: var(--default-white);
+  background-color: var(--theme-seconday-color);
+}
+
+.select--white {
+  color: var(--default-black);
+  background-color: var(--default-white);
+}

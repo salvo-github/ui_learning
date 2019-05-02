@@ -1,0 +1,119 @@
+.filters {
+  height: 69px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card {
+  height: 476px;
+  max-width: 440px;
+  margin-bottom: 27px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 800px) {
+  .card {
+    height: 460px;
+    width: 360px;
+    margin-bottom: 30px;
+  }
+}
+
+.card__figure {
+  max-width: 100%;
+  height: 295px;
+  flex: 0 0;
+  position: relative;
+}
+
+.figure__image {
+  max-width: 100%;
+}
+
+.figure__caption {
+  height: 30px;
+  max-width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(var(--default-rgba-black), 0.75);
+}
+
+.caption__vote {
+  height: 100%;
+  margin: 0 21.35px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.vote {
+  display: inline-block;
+  height: 16.46px;
+  width: 17.31px;
+  margin: 0 1.8px;
+}
+
+.vote--full::after {
+  content: url(../media/products/vote/star-active.svg);
+}
+
+.vote--empty::after {
+  content: url(../media/products/vote/star-inactive.svg);
+}
+
+.card__info {
+  flex: 1;
+  max-width: 100%;
+  background-image: url(../media/products/modal-bg.png);
+  background-repeat: repeat;
+  color: var(--default-black);
+  display: flex;
+}
+
+.card__info--margin {
+  flex: 1;
+  position: relative;
+  margin: 14px 20px;
+}
+
+.card__info-title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--border-main);
+  margin-bottom: 9px;
+}
+
+.card__info-desc {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.card__info-price {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 32px;
+}
+
+.card__info-price::before {
+  content: '$';
+  color: var(--theme-seconday-color);
+}
+
+.card__info-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

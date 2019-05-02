@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Common Layout</title>
-  <link rel="stylesheet" href="./reset.css">
-  <link rel="stylesheet" href="./common.css">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./components/reset.css">
+  <link rel="stylesheet" href="./components/palette.css">
+  <link rel="stylesheet" href="./components/link.css">
+  <link rel="stylesheet" href="./components/button.css">
+  <link rel="stylesheet" href="./components/select.css">
+  <link rel="stylesheet" href="./components/common.css">
+  <link rel="stylesheet" href="./components/main.css">
 </head>
 
 <body>
   <div class="wrapper">
-
     <header class="header">
       <div class="header__content">
         <div class="header__logo">
@@ -23,10 +26,36 @@
         </div>
       </div>
     </header>
-
     <div class="main">
       <div class="main__content">
-        <div class="filters"></div>
+        <div class="filters">
+          <form action="">
+            <p>
+              <label for="availability">Availability:</label>
+              <input class="checkbox" type="checkbox" name="availability" id="availability">
+            </p>
+            <p>
+              <label for="gender">Gender:</label>
+              <input type="radio" name="name" id="gender">
+            </p>
+            <p>
+              <label for="category"></label>
+              <select class="select" name="category" id="category">
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+            </p>
+            <p>
+              <label for="rating"></label>
+              <input type="range" name="rating" id="rating">
+            </p>
+            <p>
+              <label for="price"></label>
+              <input type="range" name="price" id="price">
+            </p>
+          </form>
+        </div>
         <div class="cards">
           <article class="card">
             <figure class="card__figure">
@@ -43,12 +72,19 @@
             </figure>
             <section class="card__info">
               <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
-                  libero aliquid architecto ad quis sit nulla officiis ex velit sapiente autem fugit , qui reprehenderit
-                  veniam.</p>
+                <h2 class="card__info-title">Active Coat
+                  Lorem 1</h2>
+                <p class="card__info-desc">Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit.
+                  Adipisci aperiam, libero aliquid
+                  architecto ad quis sit nulla officiis ex
+                  velit sapiente autem fugit , qui
+                  reprehenderit veniam.
+                </p>
                 <p class="card__info-price">47.95</p>
-                <button class="button button--default card__info-button">Show more</button>
+                <button class="button button--primary button--regular
+                                        card__info-button">Show
+                  more</button>
               </div>
             </section>
           </article>
@@ -67,12 +103,19 @@
             </figure>
             <section class="card__info">
               <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
-                  libero aliquid architecto ad quis sit nulla officiis ex velit sapiente autem fugit , qui reprehenderit
-                  veniam.</p>
+                <h2 class="card__info-title">Active Coat
+                  Lorem 1</h2>
+                <p class="card__info-desc">Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit.
+                  Adipisci aperiam, libero aliquid
+                  architecto ad quis sit nulla officiis ex
+                  velit sapiente autem fugit , qui
+                  reprehenderit veniam.
+                </p>
                 <p class="card__info-price">47.95</p>
-                <button class="button button--default card__info-button">Show more</button>
+                <button class="button button--primary button--regular
+                                        card__info-button">Show
+                  more</button>
               </div>
             </section>
           </article>
@@ -91,12 +134,19 @@
             </figure>
             <section class="card__info">
               <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
-                  libero aliquid architecto ad quis sit nulla officiis ex velit sapiente autem fugit , qui reprehenderit
-                  veniam.</p>
+                <h2 class="card__info-title">Active Coat
+                  Lorem 1</h2>
+                <p class="card__info-desc">Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit.
+                  Adipisci aperiam, libero aliquid
+                  architecto ad quis sit nulla officiis ex
+                  velit sapiente autem fugit , qui
+                  reprehenderit veniam.
+                </p>
                 <p class="card__info-price">47.95</p>
-                <button class="button button--default card__info-button">Show more</button>
+                <button class="button button--primary button--regular
+                                        card__info-button">Show
+                  more</button>
               </div>
             </section>
           </article>
@@ -115,12 +165,19 @@
             </figure>
             <section class="card__info">
               <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
-                  libero aliquid architecto ad quis sit nulla officiis ex velit sapiente autem fugit , qui reprehenderit
-                  veniam.</p>
+                <h2 class="card__info-title">Active Coat
+                  Lorem 1</h2>
+                <p class="card__info-desc">Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit.
+                  Adipisci aperiam, libero aliquid
+                  architecto ad quis sit nulla officiis ex
+                  velit sapiente autem fugit , qui
+                  reprehenderit veniam.
+                </p>
                 <p class="card__info-price">47.95</p>
-                <button class="button button--default card__info-button">Show more</button>
+                <button class="button button--primary button--regular
+                                        card__info-button">Show
+                  more</button>
               </div>
             </section>
           </article>
@@ -139,22 +196,28 @@
             </figure>
             <section class="card__info">
               <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
-                  libero aliquid architecto ad quis sit nulla officiis ex velit sapiente autem fugit , qui reprehenderit
-                  veniam.</p>
+                <h2 class="card__info-title">Active Coat
+                  Lorem 1</h2>
+                <p class="card__info-desc">Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit.
+                  Adipisci aperiam, libero aliquid
+                  architecto ad quis sit nulla officiis ex
+                  velit sapiente autem fugit , qui
+                  reprehenderit veniam.
+                </p>
                 <p class="card__info-price">47.95</p>
-                <button class="button button--default card__info-button">Show more</button>
+                <button class="button button--primary button--regular
+                                        card__info-button">Show
+                  more</button>
               </div>
             </section>
           </article>
-
         </div>
       </div>
     </div>
-
     <footer class="footer">
-      <p class="footer__company-info">Copyright <span class="footer__company-info--quoted">"Demo Shop"</span>, 2017</p>
+      <p class="footer__company-info">Copyright <span class="footer__company-info--quoted">"Demo Shop"</span>,
+        2017 </p>
     </footer>
   </div>
 </body>
