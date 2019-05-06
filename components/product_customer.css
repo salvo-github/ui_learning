@@ -88,11 +88,11 @@
 }
 
 .vote--full::after {
-  content: url(../media/products/vote/star-active.svg);
+  content: url(../media/svg/star-active.svg);
 }
 
 .vote--empty::after {
-  content: url(../media/products/vote/star-inactive.svg);
+  content: url(../media/svg/star-inactive.svg);
 }
 
 .card__info {

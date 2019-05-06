@@ -7,11 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Common Layout</title>
   <link rel="stylesheet" href="./components/reset.css">
-  <link rel="stylesheet" href="./components/palette.css">
   <link rel="stylesheet" href="./components/link.css">
-  <link rel="stylesheet" href="./components/button.css">
-  <link rel="stylesheet" href="./components/select.css">
+  <link rel="stylesheet" href="./components/palette.css">
   <link rel="stylesheet" href="./components/common.css">
+  <link rel="stylesheet" href="./components/button.css">
+  <link rel="stylesheet" href="./components/checkbox.css">
+  <link rel="stylesheet" href="./components/radiobutton.css">
+  <link rel="stylesheet" href="./components/select.css">
   <link rel="stylesheet" href="./components/main.css">
 </head>
 
@@ -29,31 +31,36 @@
     <div class="main">
       <div class="main__content">
         <div class="filters">
-          <form action="">
-            <p>
-              <label for="availability">Availability:</label>
-              <input class="checkbox" type="checkbox" name="availability" id="availability">
-            </p>
-            <p>
-              <label for="gender">Gender:</label>
-              <input type="radio" name="name" id="gender">
-            </p>
-            <p>
-              <label for="category"></label>
-              <select class="select" name="category" id="category">
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+          <form class="filters__form" action="">
+            <div class="filters__form-field">
+              <p>Availability:</p>
+              <input class="tgl tgl-light" type="checkbox" name="availability" id="availability">
+              <label class="tgl-btn" for="availability"></label>
+            </div>
+            <div class="filters__form-field">
+              <p>Gender:</p>
+              <input class="radio" type="radio" name="gender" id="gender_man">
+              <label class="radio__label" for="gender_man">Man</label>
+              <input class="radio" type="radio" name="gender" id="gender_woman">
+              <label class="radio__label" for="gender_woman">Woman</label>
+              <input class="radio" type="radio" name="gender" id="gender_unisex">
+              <label class="radio__label" for="gender_unisex">Unisex</label>
+            </div>
+            <div class="filters__form-field">
+              <p><label class="" for="category">Category:</label></p>
+              <select class="select select--green" name="category" id="category">
+                <option value="">Active wear</option>
+                <option value="">Other</option>
               </select>
-            </p>
-            <p>
-              <label for="rating"></label>
+            </div>
+            <div class="filters__form-field">
               <input type="range" name="rating" id="rating">
-            </p>
-            <p>
-              <label for="price"></label>
+              <label class="checkbox__label" for="rating">Rating:</label>
+            </div>
+            <div class="filters__form-field filters__form-field--noborder">
               <input type="range" name="price" id="price">
-            </p>
+              <label class="checkbox__label" for="price">Price:</label>
+            </div>
           </form>
         </div>
         <div class="cards">

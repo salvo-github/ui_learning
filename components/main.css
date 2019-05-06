@@ -1,5 +1,30 @@
 .filters {
-  height: 69px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  /* hei ght: 430px;
+  width: 440px; */
+  width: 100%;
+  border-radius: 15px;
+  background-color: var(--default-white);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.filters__form {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.filters__form-field {
+  width: 100%;
+  margin: 0 20px;
+  padding: 20px 0;
+  border-bottom: 0.5px solid var(--theme-seconday-color);
+}
+
+.filters__form-field--noborder {
+  border-bottom: unset;
 }
 
 .cards {
@@ -62,11 +87,11 @@
 }
 
 .vote--full::after {
-  content: url(../media/products/vote/star-active.svg);
+  content: url(../media/svg/star-active.svg);
 }
 
 .vote--empty::after {
-  content: url(../media/products/vote/star-inactive.svg);
+  content: url(../media/svg/star-inactive.svg);
 }
 
 .card__info {
