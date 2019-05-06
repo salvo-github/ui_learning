@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="./components/button.css">
   <link rel="stylesheet" href="./components/checkbox.css">
   <link rel="stylesheet" href="./components/radiobutton.css">
+  <link rel="stylesheet" href="./components/range/range.css">
   <link rel="stylesheet" href="./components/select.css">
   <link rel="stylesheet" href="./components/main.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 
 <body>
@@ -54,8 +56,11 @@
               </select>
             </div>
             <div class="filters__form-field">
-              <input type="range" name="rating" id="rating">
-              <label class="checkbox__label" for="rating">Rating:</label>
+              <p>Price Range</p>
+              <section class="range-slider">
+                <input value="500" min="500" max="50000" step="500" type="range">
+                <input value="50000" min="500" max="50000" step="500" type="range">
+              </section>
             </div>
             <div class="filters__form-field filters__form-field--noborder">
               <input type="range" name="price" id="price">
@@ -227,6 +232,7 @@
         2017 </p>
     </footer>
   </div>
+  <script src="./components/range/range.js"></script>
 </body>
 
 </html>
