@@ -1,0 +1,20 @@
+.input-text {
+  height: 35px;
+  width: 235px;
+  border-radius: 5px;
+  background-color: var(--default-white);
+}
+
+.input-text:invalid {
+  border: 2px solid var(--border-error);
+}
+
+.input-text:focus {
+  border: 2px solid var(--border-focus);
+}
+
+.input-text-image {
+  background-position: right 19px center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+}

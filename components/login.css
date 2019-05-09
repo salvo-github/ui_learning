@@ -49,23 +49,6 @@ body {
   align-items: center;
 }
 
-.form__input-text {
-  height: 60px;
-  width: 450px;
-  background-color: var(--default-white);
-}
-
-.form__input-text:invalid {
-  border: 3px solid var(--border-error);
-  border-radius: 10px;
-}
-
-.form__input-text-image {
-  background-position: right 19px center;
-  background-repeat: no-repeat;
-  background-size: 30px;
-}
-
 .form__input-text-image--username {
   background-image: url(../media/svg/login-inactive.svg);
 }

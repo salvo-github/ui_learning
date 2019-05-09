@@ -1,5 +1,5 @@
 .navigation {
-  margin: 0 31px;
+  /* margin: 0 31px; */
   height: 57px;
   display: flex;
   justify-content: space-between;
@@ -96,7 +96,7 @@
 }
 
 .card__info {
-  padding-top: 16px;
+  padding-top: 1em;
   width: 100%;
   color: var(--default-black);
   display: flex;
@@ -112,31 +112,31 @@
 }
 
 .card__info-title {
-  font-size: 24px;
+  /* font-size: 24px;
   font-weight: bold;
-  line-height: 32px;
-  padding-bottom: 9px;
-  border-bottom: 2px solid var(--border-main);
-  margin-bottom: 9px;
+  line-height: 32px; */
+  padding-bottom: 0.5em;
+  border-bottom: 0.111em solid var(--border-main);
+  margin-bottom: 0.5em;
 }
 
-.card__info-desc {
+/* .card__info-desc {
   font-size: 16px;
   line-height: 20px;
-}
+} */
 
 .card__cta {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid var(--border-light);
-  padding-top: 12.5px;
-  margin-top: 12.5px;
+  padding-top: 0.78125em;
+  margin-top: 0.78125em;
 }
 
 .card__info-price {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  line-height: 32px;
+  line-height: 2rem;
 }
 
 .card__info-price::before {
@@ -146,5 +146,5 @@
 
 .card__info-price--extra {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.125rem;
 }

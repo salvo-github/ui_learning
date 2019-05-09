@@ -1,3 +1,9 @@
+@import url('./elements/reset.css');
+@import url('./elements/font.css');
+@import url('./elements/palette.css');
+@import url('./elements/link.css');
+@import url('./elements/button.css');
+
 html,
 body {
   height: 100%;
@@ -87,7 +93,7 @@ body {
 
 .main__content {
   position: relative;
-  padding: 20px;
+  padding: 0 20px;
   max-width: 480px;
   flex: 1 1 auto;
   background-color: rgba(var(--default-rgba-black), 0.35);
