@@ -1,0 +1,25 @@
+.navigation {
+  /* margin: 0 31px; */
+  height: 57px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation__back {
+  color: var(--default-white);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.navigation__category {
+  color: var(--default-white);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.navigation__category--std {
+  font-weight: normal;
+}

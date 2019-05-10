@@ -1,5 +1,5 @@
-@import url('./form/checkbox.css');
-@import url('./form/input_text.css');
-@import url('./form/radiobutton.css');
-@import url('./form/select.css');
-@import url('./form/range.css');
+@import url('../../checkbox/css/checkbox.css');
+@import url('../../textinput/css/textinput.css');
+@import url('../../radiobutton/css/radiobutton.css');
+@import url('../../select/css/select.css');
+@import url('../../range/css/range.css');

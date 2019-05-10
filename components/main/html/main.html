@@ -6,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Main</title>
-  <link rel="stylesheet" href="./components/common.css">
-  <link rel="stylesheet" href="./components/form.css">
-  <link rel="stylesheet" href="./components/main.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="../../common/css/common.css">
+  <link rel="stylesheet" href="../../form/css/form.css">
+  <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -31,7 +30,7 @@
             onclick="toogleFilters();">Filter options</button>
           <input class="input-text" type="text" name="filterbytext" id="filterbytext" form="filters__form_id"
             placeholder="Filter by text...">
-          <div id="filters__content-id" class="filters__content">
+          <div id="filters__content-id" class="filters__content" style="display: none;">
             <form id="filters__form_id" class="filters__form" action="">
               <div class="filters__form-field">
                 <p>Availability:</p>
@@ -61,170 +60,196 @@
                   <input value="50000" min="500" max="50000" step="500" type="range">
                 </section>
               </div>
-              <div class="filters__form-field filters__form-field--noborder">
+              <!-- <div class="filters__form-field filters__form-field--noborder">
                 <input type="range" name="price" id="price">
                 <label class="checkbox__label" for="price">Price:</label>
-              </div>
+              </div> -->
             </form>
           </div>
         </section>
 
         <div class="cards">
           <article class="card">
-            <figure class="card__figure">
-              <img class="figure__image" src="./media/products/1.jpg" />
-              <figcaption class="figure__caption">
-                <ul class="caption__vote">
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--empty"></li>
-                  <li class="vote vote--empty"></li>
-                </ul>
-              </figcaption>
-            </figure>
-            <section class="card__info">
-              <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat
-                  Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit.
-                  Adipisci aperiam, libero aliquid
-                  architecto ad quis sit nulla officiis ex
-                  velit sapiente autem fugit , qui
-                  reprehenderit veniam.
-                </p>
-                <p class="card__info-price">47.95</p>
-                <button class="button button--primary button--regular
-                                        card__info-button">Show
-                  more</button>
-              </div>
-            </section>
+            <div class="card__display">
+              <figure class="card__figure">
+                <img class="figure__image" src="../../../media/products/1.jpg" />
+                <figcaption class="figure__caption">
+                  <ul class="caption__vote">
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--empty"></li>
+                    <li class="vote vote--empty"></li>
+                  </ul>
+                </figcaption>
+              </figure>
+              <section class="card__info">
+                <div class="card__info-group">
+                  <h2 class="h2 card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                    Adipisicing Elit.3</h2>
+                  <p class="h4 card__info-desc card__info-desc--ellipsis">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                    velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+                </div>
+                <div class="card__cta">
+                  <p class="h1  card__info-price">47.95</span></p>
+                  <button class="h4 button button--primary button--regular">Show more</button>
+                </div>
+              </section>
+            </div>
           </article>
           <article class="card">
-            <figure class="card__figure">
-              <img class="figure__image" src="./media/products/1.jpg" />
-              <figcaption class="figure__caption">
-                <ul class="caption__vote">
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--empty"></li>
-                  <li class="vote vote--empty"></li>
-                </ul>
-              </figcaption>
-            </figure>
-            <section class="card__info">
-              <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat
-                  Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit.
-                  Adipisci aperiam, libero aliquid
-                  architecto ad quis sit nulla officiis ex
-                  velit sapiente autem fugit , qui
-                  reprehenderit veniam.
-                </p>
-                <p class="card__info-price">47.95</p>
-                <button class="button button--primary button--regular
-                                        card__info-button">Show
-                  more</button>
-              </div>
-            </section>
+            <div class="card__display">
+              <figure class="card__figure">
+                <img class="figure__image" src="../../../media/products/1.jpg" />
+                <figcaption class="figure__caption">
+                  <ul class="caption__vote">
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--empty"></li>
+                    <li class="vote vote--empty"></li>
+                  </ul>
+                </figcaption>
+              </figure>
+              <section class="card__info">
+                <div class="card__info-group">
+                  <h2 class="h2 card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                    Adipisicing Elit.3</h2>
+                  <p class="h4 card__info-desc card__info-desc--ellipsis">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                    velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+                </div>
+                <div class="card__cta">
+                  <p class="h1  card__info-price">47.95</span></p>
+                  <button class="h4 button button--primary button--regular">Show more</button>
+                </div>
+              </section>
+            </div>
           </article>
           <article class="card">
-            <figure class="card__figure">
-              <img class="figure__image" src="./media/products/1.jpg" />
-              <figcaption class="figure__caption">
-                <ul class="caption__vote">
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--empty"></li>
-                  <li class="vote vote--empty"></li>
-                </ul>
-              </figcaption>
-            </figure>
-            <section class="card__info">
-              <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat
-                  Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit.
-                  Adipisci aperiam, libero aliquid
-                  architecto ad quis sit nulla officiis ex
-                  velit sapiente autem fugit , qui
-                  reprehenderit veniam.
-                </p>
-                <p class="card__info-price">47.95</p>
-                <button class="button button--primary button--regular
-                                        card__info-button">Show
-                  more</button>
-              </div>
-            </section>
+            <div class="card__display">
+              <figure class="card__figure">
+                <img class="figure__image" src="../../../media/products/1.jpg" />
+                <figcaption class="figure__caption">
+                  <ul class="caption__vote">
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--empty"></li>
+                    <li class="vote vote--empty"></li>
+                  </ul>
+                </figcaption>
+              </figure>
+              <section class="card__info">
+                <div class="card__info-group">
+                  <h2 class="h2 card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                    Adipisicing Elit.3</h2>
+                  <p class="h4 card__info-desc card__info-desc--ellipsis">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                    velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+                </div>
+                <div class="card__cta">
+                  <p class="h1  card__info-price">47.95</span></p>
+                  <button class="h4 button button--primary button--regular">Show more</button>
+                </div>
+              </section>
+            </div>
           </article>
           <article class="card">
-            <figure class="card__figure">
-              <img class="figure__image" src="./media/products/1.jpg" />
-              <figcaption class="figure__caption">
-                <ul class="caption__vote">
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--empty"></li>
-                  <li class="vote vote--empty"></li>
-                </ul>
-              </figcaption>
-            </figure>
-            <section class="card__info">
-              <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat
-                  Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit.
-                  Adipisci aperiam, libero aliquid
-                  architecto ad quis sit nulla officiis ex
-                  velit sapiente autem fugit , qui
-                  reprehenderit veniam.
-                </p>
-                <p class="card__info-price">47.95</p>
-                <button class="button button--primary button--regular
-                                        card__info-button">Show
-                  more</button>
-              </div>
-            </section>
+            <div class="card__display">
+              <figure class="card__figure">
+                <img class="figure__image" src="../../../media/products/1.jpg" />
+                <figcaption class="figure__caption">
+                  <ul class="caption__vote">
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--empty"></li>
+                    <li class="vote vote--empty"></li>
+                  </ul>
+                </figcaption>
+              </figure>
+              <section class="card__info">
+                <div class="card__info-group">
+                  <h2 class="h2 card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                    Adipisicing Elit.3</h2>
+                  <p class="h4 card__info-desc card__info-desc--ellipsis">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                    velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+                </div>
+                <div class="card__cta">
+                  <p class="h1  card__info-price">47.95</span></p>
+                  <button class="h4 button button--primary button--regular">Show more</button>
+                </div>
+              </section>
+            </div>
           </article>
           <article class="card">
-            <figure class="card__figure">
-              <img class="figure__image" src="./media/products/1.jpg" />
-              <figcaption class="figure__caption">
-                <ul class="caption__vote">
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--full"></li>
-                  <li class="vote vote--empty"></li>
-                  <li class="vote vote--empty"></li>
-                </ul>
-              </figcaption>
-            </figure>
-            <section class="card__info">
-              <div class="card__info--margin">
-                <h2 class="card__info-title">Active Coat
-                  Lorem 1</h2>
-                <p class="card__info-desc">Lorem ipsum dolor
-                  sit amet, consectetur adipisicing elit.
-                  Adipisci aperiam, libero aliquid
-                  architecto ad quis sit nulla officiis ex
-                  velit sapiente autem fugit , qui
-                  reprehenderit veniam.
-                </p>
-                <p class="card__info-price">47.95</p>
-                <button class="button button--primary button--regular
-                                        card__info-button">Show
-                  more</button>
-              </div>
-            </section>
+            <div class="card__display">
+              <figure class="card__figure">
+                <img class="figure__image" src="../../../media/products/1.jpg" />
+                <figcaption class="figure__caption">
+                  <ul class="caption__vote">
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--empty"></li>
+                    <li class="vote vote--empty"></li>
+                  </ul>
+                </figcaption>
+              </figure>
+              <section class="card__info">
+                <div class="card__info-group">
+                  <h2 class="h2 card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                    Adipisicing Elit.3</h2>
+                  <p class="h4 card__info-desc card__info-desc--ellipsis">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                    velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+                </div>
+                <div class="card__cta">
+                  <p class="h1  card__info-price">47.95</span></p>
+                  <button class="h4 button button--primary button--regular">Show more</button>
+                </div>
+              </section>
+            </div>
           </article>
+          <article class="card">
+            <div class="card__display">
+              <figure class="card__figure">
+                <img class="figure__image" src="../../../media/products/1.jpg" />
+                <figcaption class="figure__caption">
+                  <ul class="caption__vote">
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--full"></li>
+                    <li class="vote vote--empty"></li>
+                    <li class="vote vote--empty"></li>
+                  </ul>
+                </figcaption>
+              </figure>
+              <section class="card__info">
+                <div class="card__info-group">
+                  <h2 class="h2 card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                    Adipisicing Elit.3</h2>
+                  <p class="h4 card__info-desc card__info-desc--ellipsis">Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                    velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+                </div>
+                <div class="card__cta">
+                  <p class="h1  card__info-price">47.95</span></p>
+                  <button class="h4 button button--primary button--regular">Show more</button>
+                </div>
+              </section>
+            </div>
+          </article>
+
         </div>
       </div>
     </div>
@@ -233,8 +258,8 @@
         2017 </p>
     </footer>
   </div>
-  <script src="./components/range/range.js"></script>
-  <script src="./components/main.js"></script>
+  <script src="../../range/js/range.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

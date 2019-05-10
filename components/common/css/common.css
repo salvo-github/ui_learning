@@ -1,8 +1,10 @@
-@import url('./elements/reset.css');
-@import url('./elements/font.css');
-@import url('./elements/palette.css');
-@import url('./elements/link.css');
-@import url('./elements/button.css');
+@import url(./reset.css);
+@import url(./font.css);
+@import url(./palette.css);
+@import url(./link.css);
+@import url(../../button/css/button.css);
+@import url(../../header/css/header.css);
+@import url(../../footer/css/footer.css);
 
 html,
 body {
@@ -17,72 +19,10 @@ body {
   /* flex-grow: 1; */
   /* flex-basis: 100vh; */
   min-height: 100%;
-  background-image: url(../media/main/bg.jpg);
+  background-image: url(../../../media/main/bg.jpg);
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
-}
-
-.header {
-  /* height: 45px; */
-  border: 0 solid var(--border-common);
-  width: 100%;
-  background: linear-gradient(180deg, var(--theme-main-color-shade) 0%, var(--theme-main-color) 100%);
-  box-shadow: 0 3px 0 0 rgba(var(--theme-main-color-rgba-shadow), 0.5);
-  flex: 0 0 45px;
-  display: flex;
-}
-
-.header__content {
-  /* height: 100%; */
-  flex: 1;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  /* flex-direction: row; */
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media (min-width: 800px) and (max-width: 1000px) {
-  .header__content {
-    max-width: 800px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .header__content {
-    max-width: 1200px;
-  }
-}
-
-.header__logo::after {
-  padding-left: 24px;
-  /* display: inline-block; */
-  content: url(../media/svg/logo.svg);
-  height: 24px;
-  width: 24px;
-}
-
-.header__login {
-  padding-right: 20px;
-}
-
-.header__login--logged {
-  color: var(--default-white);
-}
-
-.header__login--logged-user {
-  font-style: italic;
-}
-
-.header__login--logged::after {
-  display: inline-block;
-  padding-left: 8px;
-  content: url(../media/svg/header-logout.svg);
-  height: 1em;
-  width: 1em;
 }
 
 .main {
@@ -109,21 +49,4 @@ body {
   .main__content {
     max-width: 1200px;
   }
-}
-
-.footer {
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* height: 45px; */
-  flex: 0 0 45px;
-  width: 100%;
-  border: 0 solid var(--border-common);
-  background-color: var(--theme-main-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer__company-info {
-  color: var(--default-white);
 }

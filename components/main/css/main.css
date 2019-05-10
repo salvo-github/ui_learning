@@ -1,25 +1,28 @@
+@import url(../../card/css/card.css);
+
 .filters {
   position: relative;
-  padding: 15px 0;
-  /* display: flex;
-  justify-content: space-between; */
+  padding: 0.94em 0;
+  display: flex;
+  justify-content: space-between;
+  /* flex-flow: row wrap; */
 }
 
 .filters__content {
-  display: none;
   position: absolute;
   z-index: 1;
-  padding: 0 20px;
-  margin: 12px 0;
+  padding: 0 1.25em;
+  margin: 2.94em 0;
+  /* width: 100%; */
   /* top: 0; */
-  left: 0;
-  right: 0;
+  /* left: 0;
+  right: 0; */
   /* hei ght: 430px;
   width: 440px; */
   /* width: 100%; */
-  border-radius: 15px;
+  border-radius: 0.94em;
   background-color: var(--default-white);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.13em 0.25em 0 rgba(0, 0, 0, 0.5);
 }
 
 .filters__form {
@@ -46,111 +49,6 @@
   align-items: center;
 }
 
-.card {
-  height: 476px;
-  max-width: 440px;
-  margin-bottom: 27px;
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 800px) {
-  .card {
-    height: 460px;
-    width: 360px;
-    margin-bottom: 30px;
-  }
-}
-
-.card__figure {
-  max-width: 100%;
-  height: 295px;
-  flex: 0 0;
-  position: relative;
-}
-
-.figure__image {
-  max-width: 100%;
-}
-
-.figure__caption {
-  height: 30px;
-  max-width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(var(--default-rgba-black), 0.75);
-}
-
-.caption__vote {
-  height: 100%;
-  margin: 0 21.35px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-
-.vote {
-  display: inline-block;
-  height: 16.46px;
-  width: 17.31px;
-  margin: 0 1.8px;
-}
-
-.vote--full::after {
-  content: url(../media/svg/star-active.svg);
-}
-
-.vote--empty::after {
-  content: url(../media/svg/star-inactive.svg);
-}
-
-.card__info {
-  flex: 1;
-  max-width: 100%;
-  background-image: url(../media/products/modal-bg.png);
-  background-repeat: repeat;
-  color: var(--default-black);
-  display: flex;
-}
-
-.card__info--margin {
-  flex: 1;
-  position: relative;
-  margin: 14px 20px;
-}
-
-.card__info-title {
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 23px;
-  padding-bottom: 9px;
-  border-bottom: 2px solid var(--border-main);
-  margin-bottom: 9px;
-}
-
-.card__info-desc {
-  font-size: 14px;
-  line-height: 19px;
-}
-
-.card__info-price {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 32px;
-}
-
-.card__info-price::before {
-  content: '$';
-  color: var(--theme-seconday-color);
-}
-
-.card__info-button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.card__display {
+  padding: unset;
 }

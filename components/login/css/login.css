@@ -14,7 +14,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url(../media/products/modal-bg.png);
+  background: url(../../../media/products/modal-bg.png);
   background-repeat: repeat;
 }
 
@@ -50,19 +50,19 @@ body {
 }
 
 .form__input-text-image--username {
-  background-image: url(../media/svg/login-inactive.svg);
+  background-image: url(../../../media/svg/login-inactive.svg);
 }
 
 .form__input-text-image--username:invalid {
-  background-image: url(../media/svg/login-invalid.svg);
+  background-image: url(../../../media/svg/login-invalid.svg);
 }
 
 .form__input-text-image--password {
-  background-image: url(../media/svg/password-inactive.svg);
+  background-image: url(../../../media/svg/password-inactive.svg);
 }
 
 .form__input-text-image--password:invalid {
-  background-image: url(../media/svg/password-invalid.svg);
+  background-image: url(../../../media/svg/password-invalid.svg);
 }
 
 .button--login {
