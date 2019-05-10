@@ -1,8 +1,5 @@
 .footer {
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* height: 45px; */
-  flex: 0 0 45px;
+  flex: 0 0 2.81em;
   width: 100%;
   border: 0 solid var(--border-common);
   background-color: var(--theme-main-color);
@@ -13,4 +10,8 @@
 
 .footer__company-info {
   color: var(--default-white);
+}
+
+.footer__company-info--quoted {
+  text-decoration: underline;
 }
