@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Product Customer</title>
+  <title>Product Admin</title>
   <link rel="stylesheet" href="../../common/css/common.css">
-  <link rel="stylesheet" href="../css/pdp.css">
+  <link rel="stylesheet" href="../../pdp/css/pdp.css">
 </head>
 
 <body>
@@ -18,51 +18,51 @@
         <div class="header__logo">
         </div>
         <div class="header__login">
-          <p class="h4 header__login--logged">Hello, <span class="h--italic">John Doe</span></p>
+          <p class="h4 header__login--logged">Hello, <span class="h--italic">John_Doe</span></p>
         </div>
       </div>
     </header>
 
     <div class="main">
       <div class="main__content">
-        <nav class="navigation">
+        <nav class="h3 h--bold navigation">
           <p class="navigation__back">Back</p>
-          <p class="navigation__category"><span class="navigation__category--std">Category:</span>Man / Active wear</p>
+          <p class="navigation__category"><span class="h--lighter">Category: </span>Man / Active wear</p>
         </nav>
-        <div class="cards">
-          <article class="card">
-            <div class="card__display">
-              <figure class="card__figure">
-                <img class="figure__image" src="../../../media/products/1.jpg" />
-                <figcaption class="figure__caption">
-                  <ul class="caption__vote">
-                    <li class="vote vote--full"></li>
-                    <li class="vote vote--full"></li>
-                    <li class="vote vote--full"></li>
-                    <li class="vote vote--empty"></li>
-                    <li class="vote vote--empty"></li>
-                  </ul>
-                </figcaption>
-              </figure>
-              <section class="card__info">
-                <div class="card__info-group">
-                  <h2 class="card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
-                    Adipisicing Elit.3</h2>
-                  <p class="card__info-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
-                    libero
-                    aliquid architecto ad quis maiores sit nulla officiis ex velit sapiente autem fugit
-                    quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
-                    consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
-                </div>
-                <div class="card__cta">
-                  <p class="card__info-price">47.95 <span class="card__info-price--extra">(9 items left)</span></p>
-                  <button class="button button--primary button--regular">Show more</button>
-                </div>
-              </section>
-            </div>
-          </article>
 
+        <div class="card__container">
+          <article class="card">
+            <figure class="card__figure">
+              <img class="figure__image" src="../../../media/products/1.jpg" />
+              <figcaption class="figure__caption">
+                <ul class="caption__vote">
+                  <li class="vote vote--full"></li>
+                  <li class="vote vote--full"></li>
+                  <li class="vote vote--full"></li>
+                  <li class="vote vote--empty"></li>
+                  <li class="vote vote--empty"></li>
+                </ul>
+              </figcaption>
+            </figure>
+            <section class="card__info">
+              <div class="card__info-group">
+                <h2 class="h2 h--bold card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                  Adipisicing Elit.3</h2>
+                <p class="h3 card__info-desc">Lorem ipsum dolor sit amet, consectetur
+                  adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
+                  velit sapiente autem fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+                  consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+              </div>
+              <div class="card__cta">
+                <p class="h1 h--bold  card__info-price">47.95 <span
+                    class="h--lighter h--smaller card__info-price--extra">(9
+                    items left)</span></p>
+                <button class="button button--primary button--regular"><span class="h5">Buy</span></button>
+              </div>
+            </section>
+          </article>
         </div>
+
       </div>
     </div>
 

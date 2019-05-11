@@ -1,2 +1,13 @@
 @import url(../../navigation/css/navigation.css);
 @import url(../../card/css/card.css);
+
+.card__container {
+  padding: 1.25em 1.25em 0;
+  background-image: url(../../../media/products/modal-bg.png);
+  background-repeat: repeat;
+}
+
+.card__info {
+  background-image: unset;
+  padding: 0.88em 0;
+}

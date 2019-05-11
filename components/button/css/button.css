@@ -27,16 +27,11 @@
 }
 
 .button--regular {
-  height: 35px;
-  width: 120px;
-  font-size: 14px;
-  line-height: 19px;
+  height: 2.19em;
+  width: 7.5em;
 }
 
 .button--big {
-  height: 50px;
-  width: 170px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 23px;
+  height: 3.13em;
+  width: 10.63em;
 }

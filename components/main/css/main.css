@@ -49,6 +49,6 @@
   align-items: center;
 }
 
-.card__display {
-  padding: unset;
+.card__container {
+  margin-bottom: 1.69em;
 }

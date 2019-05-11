@@ -1,21 +1,9 @@
-.card {
-  /* margin: auto; */
-  max-width: 27.5em;
-  background-image: url(../../../media/products/modal-bg.png);
-  background-repeat: repeat;
-  margin-bottom: 1.69em;
-}
-
 /* @media (min-width: 800px) {
   .card {
     max-width: 1140px;
   }
 } */
 
-.card__display {
-  padding: 1.25em;
-  width: 100%;
-}
 
 /*
 @media (min-width: 800px) {
@@ -24,10 +12,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-} */
-
-/* .card__figure {
-  width: 100%;
 } */
 
 /* @media (min-width: 800px) {
@@ -44,7 +28,6 @@
 .figure__caption {
   position: relative;
   margin-top: -1.88em;
-  /* width: 100%; */
   height: 1.88em;
   background-color: rgba(var(--default-rgba-black), 0.75);
 }
@@ -72,12 +55,13 @@
 }
 
 .card__info {
-  /* padding-top: 1em;
-  width: 100%; */
+  background-image: url(../../../media/products/modal-bg.png);
+  background-repeat: repeat;
   color: var(--default-black);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0.88em 1.25em;
 }
 
 /* @media (min-width: 800px) {
@@ -89,83 +73,21 @@
 
 .card__info-group {
   flex: 1;
-  margin: 0.88em 1.25em;
+  padding-bottom: 1.88em;
 }
 
 .card__info-title {
-  /* font-size: 24px;
-  font-weight: bold;
-  line-height: 32px; */
   padding-bottom: 0.5em;
   border-bottom: 0.111em solid var(--border-main);
   margin-bottom: 0.5em;
 }
 
-/* .card__info-desc--ellipsis {
-  white-space: nowrap;
-  height: 3.57em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
-.card__info-desc--ellipsis {
-  /* hide text if it more than N lines  */
-  overflow: hidden;
-  /* for set '...' in absolute position */
-  position: relative;
-  /* use this value to count block height */
-  line-height: 1.2em;
-  /* max-height = line-height (1.2) * lines max number (3) */
-  max-height: 3.6em;
-  /* fix problem when last visible word doesn't adjoin right side  */
-  text-align: justify;
-  /* place for '...' */
-  margin-right: -1em;
-  padding-right: 1em;
-}
-
-/* create the ... */
-.card__info-desc--ellipsis:before {
-  /* points in the end */
-  content: '...';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of block */
-  right: 0;
-  bottom: 0;
-}
-
-/* hide ... if we have text, which is less than or equal to max lines */
-.card__info-desc--ellipsis:after {
-  /* points in the end */
-  content: '';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of text */
-  right: 0;
-  /* set width and height */
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  /* bg color = bg color under block */
-  background: white;
-}
-
 .card__cta {
   display: flex;
   justify-content: space-between;
-  /* border-top: 1px solid var(--border-light); */
-  /* padding-top: 0.78125em; */
-  /* margin-top: 0.78125em; */
-  margin: 0.88em 1.25em;
 }
 
 .card__info-price::before {
   content: '$';
   color: var(--theme-seconday-color);
-}
-
-.card__info-price--extra {
-  font-weight: 400;
-  font-size: 1.125rem;
 }
