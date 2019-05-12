@@ -4,18 +4,17 @@
   border-radius: 0.31em;
   background-color: var(--default-white);
   padding: 0 1em;
-  margin: 0.25em 0;
-}
-
-.textinput:invalid {
-  outline: 0.13em solid var(--border-error);
 }
 
 .textinput:focus {
   outline: 0.13em solid var(--border-focus);
 }
 
-.textinput-image {
+.textinput:invalid {
+  outline: 0.13em solid var(--border-error);
+}
+
+.textinput-icon {
   background-position: right 1.19em center;
   background-repeat: no-repeat;
   background-size: 1.88em;

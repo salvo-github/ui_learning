@@ -1,78 +1,15 @@
-body {
-  background-color: rgba(var(--default-rgba-black), 0.2);
-}
-
-.modal {
-  max-height: 400px;
-  max-width: 570px;
-  height: 100%;
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 2px 4px 0 rgba(var(--default-rgba-black), 0.5);
-  /* background-color: var(--default-white); */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: url(../../../media/products/modal-bg.png);
-  background-repeat: repeat;
-}
-
-.modal__header {
-  max-height: 17.5%;
-  min-height: 1.5em;
-  height: 100%;
-  background-color: var(--default-white);
-  max-width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(var(--default-rgba-black), 0.11);
-  border-radius: 15px 15px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal__content {
-  max-height: 82.5%;
-  height: 100%;
-  position: relative;
-}
-
-.login__form {
-  height: 100%;
-}
-
-.login__form-section {
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.form__input-text-image--username {
+.login__icon--username {
   background-image: url(../../../media/svg/login-inactive.svg);
 }
 
-.form__input-text-image--username:invalid {
+.login__icon--username:invalid {
   background-image: url(../../../media/svg/login-invalid.svg);
 }
 
-.form__input-text-image--password {
+.login__icon--password {
   background-image: url(../../../media/svg/password-inactive.svg);
 }
 
-.form__input-text-image--password:invalid {
+.login__icon--password:invalid {
   background-image: url(../../../media/svg/password-invalid.svg);
-}
-
-.button--login {
-  position: absolute;
-  right: 60px;
-  bottom: 30px;
-  width: 170px;
-  height: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 23px;
-  text-align: center;
 }

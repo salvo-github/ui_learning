@@ -20,7 +20,8 @@
         <div class="header__logo">
         </div>
         <div class="header__login">
-          <p class="h4 header__login--logged">Hello, <span class="h--italic">John_Doe</span></p>
+          <p class="h4 header__login-status header__login-status--logged">Hello, <span class="h--italic">John_Doe</span>
+          </p>
         </div>
       </div>
     </header>
@@ -58,17 +59,17 @@
                 <p class="h3 card__admin-action">You can <a class="card__admin-action--link"
                     href="javascript:void(0);">add
                     5 more</a>. You can also <a class="card__admin-action--link" href="javascript:void(0);"
-                    onclick="return modalToggle('modal__edit')">edit</a>
+                    onclick="return toggleDisplay('modal__edit')">edit</a>
                   details or <a class="card__admin-action--link" href="javascript:void(0);"
-                    onclick="return modalToggle('modal__delete');">delete</a>
+                    onclick="return toggleDisplay('modal__delete');">delete</a>
                   them.</p>
               </div>
               <div class="card__cta">
                 <p class="h1 h--bold  card__info-price">47.95 <span
                     class="h--lighter h--smaller card__info-price--extra">(9
                     items left)</span></p>
-                <button class="button button--primary button--regular" onclick="return modalToggle('modal__buy');"><span
-                    class="h5">Buy</span></button>
+                <button class="button button--primary button--regular"
+                  onclick="return toggleDisplay('modal__buy');"><span class="h5">Buy</span></button>
               </div>
             </section>
           </article>
@@ -82,7 +83,7 @@
       </p>
     </footer>
   </div>
-  <div class="modal modal--close" id="modal__edit">
+  <div class="modal element--close" id="modal__edit">
     <div class="modal__header">
       <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Edit "Active Coat"</h2>
     </div>
@@ -138,14 +139,14 @@
           </div>
           <div class="modal__cta">
             <button class="button button--secondary button--big"
-              onclick="return modalToggle('modal__edit')">Cancel</button>
+              onclick="return toggleDisplay('modal__edit')">Cancel</button>
             <button class="button button--primary button--big" type="submit">Submit</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <div class="modal modal--close" id="modal__delete">
+  <div class="modal element--close" id="modal__delete">
     <div class="modal__header">
       <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Are you sure?</h2>
     </div>
@@ -155,12 +156,12 @@
       </div>
       <div class="modal__cta">
         <button class="button button--secondary button--big"
-          onclick="return modalToggle('modal__delete')">Cancel</button>
+          onclick="return toggleDisplay('modal__delete')">Cancel</button>
         <button class="button button--primary button--big" type="submit">Submit</button>
       </div>
     </div>
   </div>
-  <div class="modal modal--close" id="modal__buy">
+  <div class="modal element--close" id="modal__buy">
     <div class="modal__header">
       <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Thank you!</h2>
     </div>
@@ -169,12 +170,12 @@
         <p class="h1 h--caption h--center">You successfully purchased this item.</p>
       </div>
       <div class="modal__cta">
-        <button class="button button--primary button--big" onclick="return modalToggle('modal__buy')">Continue
+        <button class="button button--primary button--big" onclick="return toggleDisplay('modal__buy')">Continue
           shopping</button>
       </div>
     </div>
   </div>
-  <div class="modal-overlay modal--close" id="modal-overlay"></div>
+  <div class="modal-overlay element--close" id="modal-overlay"></div>
   <script src="../../modal/js/modal.js"></script>
 </body>
 

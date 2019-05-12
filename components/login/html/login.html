@@ -5,49 +5,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
-  <link rel="stylesheet" href="./components/common.css">
-  <link rel="stylesheet" href="./components/login.css">
+  <title>Product Admin</title>
+  <link rel="stylesheet" href="../../common/css/common.css">
+  <link rel="stylesheet" href="../../modal/css/modal.css">
+  <link rel="stylesheet" href="../../form/css/form.css">
+  <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
-  <div class="modal">
+  <div class="wrapper">
+
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo">
+        </div>
+        <div class="header__login">
+          <a class="h4 header__login-status header__login-status--notlogged" href="javascript:void(0);"
+            onclick="return toggleDisplay('modal_login');">Login</a>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <div class="main__content">
+      </div>
+    </div>
+    <footer class="footer">
+      <p class="h4 footer__company-info">Copyright "<span class="footer__company-info--quoted">Demo Shop</span>", 2017
+      </p>
+    </footer>
+  </div>
+  <div class="modal element--close" id="modal_login">
     <div class="modal__header">
-      <h2 class="modal__header-title">Login to “Demo Shop”</h2>
+      <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Login to “Demo Shop”</h2>
     </div>
-
-    <div class="modal__content">
-      <form class="login__form" action="">
-        <section class="login__form-section">
-          <div>
-            <p>
-              <label for="login__username">
-                <span>Your login: </span>
-              </label>
-            </p>
-            <p>
-              <input class="form__input-text form__input-text-image form__input-text-image--username" type="text"
-                id="login__username" name="username" required>
-            </p>
+    <div class="modal__body">
+      <div class="modal__main">
+        <form class="form" action="">
+          <div class="form__field">
+            <p><label class="h3" for="username">Your login:</label></p>
+            <input class="h5 textinput textinput-icon login__icon--username" type="text" name="username" id="username"
+              pattern="^[A-Za-z]+$">
           </div>
-          <div>
-            <p>
-              <label for="login__password">
-                <span>Your password: </span>
-              </label>
-            </p>
-            <p>
-              <input class="form__input-text form__input-text-image form__input-text-image--password" type="password"
-                minlength="8" id="login__password" name="password" required>
-            </p>
+          <div class="form__field">
+            <p><label class="h3" for="password">Your password::</label></p>
+            <input class="h5 textinput textinput-icon login__icon--password" type="text" name="password" id="password"
+              minlength="8">
           </div>
-        </section>
-        <button class="button button--primary button--big" type="submit">Submit</button>
-      </form>
+          <div class="modal__cta">
+            <button class="button button--primary button--big" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
-
   </div>
-  </div>
+  <div class="modal-overlay element--close" id="modal-overlay"></div>
+  <script src="../../modal/js/modal.js"></script>
 </body>
 
 </html>

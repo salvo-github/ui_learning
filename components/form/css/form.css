@@ -8,3 +8,7 @@
 .form__field {
   margin-bottom: 1.25em;
 }
+
+.form {
+  width: 100%;
+}

@@ -40,14 +40,21 @@
   padding-right: 1.25em;
 }
 
-.header__login--logged {
+.header__login-status {
   color: var(--default-white);
 }
 
-.header__login--logged::after {
+.header__login-status::after {
   display: inline-block;
   padding-left: 0.5em;
-  content: url(../../../media/svg/header-logout.svg);
   height: 1em;
   width: 1em;
+}
+
+.header__login-status--notlogged::after {
+  content: url(../../../media/svg/header-logout.svg);
+}
+
+.header__login-status--logged::after {
+  content: url(../../../media/svg/header-logout.svg);
 }

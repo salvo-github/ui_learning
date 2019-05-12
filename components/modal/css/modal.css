@@ -21,10 +21,6 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.modal--close {
-  display: none;
-}
-
 .modal__header {
   height: 4.38em;
   background-color: var(--default-white);

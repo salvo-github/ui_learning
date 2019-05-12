@@ -12,12 +12,6 @@ body {
 }
 
 .wrapper {
-  /* position: relative; */
-  /* height: 100%; */
-  /* flex: 0 0 auto; */
-  /* flex-basis:  */
-  /* flex-grow: 1; */
-  /* flex-basis: 100vh; */
   min-height: 100%;
   background-image: url(../../../media/main/bg.jpg);
   background-repeat: repeat;
@@ -39,6 +33,11 @@ body {
   background-color: rgba(var(--default-rgba-black), 0.35);
 }
 
+.element--close {
+  display: none;
+}
+
+/*
 @media (min-width: 800px) and (max-width: 1000px) {
   .main__content {
     max-width: 800px;
@@ -49,4 +48,4 @@ body {
   .main__content {
     max-width: 1200px;
   }
-}
+} */

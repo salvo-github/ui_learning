@@ -18,7 +18,8 @@
         <div class="header__logo">
         </div>
         <div class="header__login">
-          <p class="h4 header__login--logged">Hello, <span class="h--italic">John_Doe</span></p>
+          <p class="h4 header__login-status header__login-status--logged">Hello, <span class="h--italic">John_Doe</span>
+          </p>
         </div>
       </div>
     </header>
@@ -26,40 +27,42 @@
       <div class="main__content">
 
         <section class="filters">
-          <button id="button__filters--toogle" class="button button--primary button--regular"
-            onclick="toogleFilters();">Filter options</button>
-          <input class="input-text" type="text" name="filterbytext" id="filterbytext" form="filters__form_id"
-            placeholder="Filter by text...">
-          <div id="filters__content-id" class="filters__content" style="display: none;">
-            <form id="filters__form_id" class="filters__form" action="">
-              <div class="filters__form-field">
-                <p>Availability:</p>
-                <input class="tgl tgl-light" type="checkbox" name="availability" id="availability">
-                <label class="tgl-btn" for="availability"></label>
+          <button id="button__filters--toogle" class="h5 button button--primary button--regular"
+            onclick="return toggleDisplay('filters__content-id');">Filter options</button>
+          <input class="h5 textinput textinput-icon filters__icon--fbt textinput--narrower" type="text"
+            name="filterbytext" id="filterbytext" form="filters__form_id" placeholder="Filter by text...">
+          <div id="filters__content-id" class="filters__content element--close">
+            <form id="filters__form_id" class="form" action="">
+              <div class="filters__field-wrapper">
+                <p class="h3">Availability:</p>
+                <input class="h5 tgl tgl-light" type="checkbox" name="availability" id="availability">
+                <label class="h5 tgl-btn" for="availability"></label>
               </div>
-              <div class="filters__form-field">
-                <p>Gender:</p>
-                <input class="radio" type="radio" name="gender" id="gender_man">
-                <label class="radio__label" for="gender_man">Man</label>
-                <input class="radio" type="radio" name="gender" id="gender_woman">
-                <label class="radio__label" for="gender_woman">Woman</label>
-                <input class="radio" type="radio" name="gender" id="gender_unisex">
-                <label class="radio__label" for="gender_unisex">Unisex</label>
+              <div class="filters__field-wrapper">
+                <p class="h3">Gender:</p>
+                <div class="radio__wrapper">
+                  <input class="radio" type="radio" name="gender" id="gender_man">
+                  <label class="h5 radio__label" for="gender_man">Man</label>
+                  <input class="radio" type="radio" name="gender" id="gender_woman">
+                  <label class="h5 radio__label" for="gender_woman">Woman</label>
+                  <input class="radio" type="radio" name="gender" id="gender_unisex">
+                  <label class="h5 radio__label" for="gender_unisex">Unisex</label>
+                </div>
               </div>
-              <div class="filters__form-field">
-                <p><label class="" for="category">Category:</label></p>
-                <select class="select select--green" name="category" id="category">
+              <div class="filters__field-wrapper">
+                <p><label class="h3" for="category">Category:</label></p>
+                <select class="h5 select select--green" name="category" id="category">
                   <option value="">Active wear</option>
                   <option value="">Other</option>
                 </select>
               </div>
-              <div class="filters__form-field">
+              <!-- <div class="filters__form-field">
                 <p>Price Range</p>
                 <section class="range-slider">
                   <input value="500" min="500" max="50000" step="500" type="range">
                   <input value="50000" min="500" max="50000" step="500" type="range">
                 </section>
-              </div>
+              </div> -->
               <!-- <div class="filters__form-field filters__form-field--noborder">
                 <input type="range" name="price" id="price">
                 <label class="checkbox__label" for="price">Price:</label>
@@ -411,6 +414,7 @@
   </div>
   <script src="../../range/js/range.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../../modal/js/modal.js"></script>
 </body>
 
 </html>
