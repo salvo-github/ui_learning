@@ -3,3 +3,8 @@
 @import url('../../radiobutton/css/radiobutton.css');
 @import url('../../select/css/select.css');
 @import url('../../range/css/range.css');
+@import url('../../textarea/css/textarea.css');
+
+.form__field {
+  margin-bottom: 1.25em;
+}

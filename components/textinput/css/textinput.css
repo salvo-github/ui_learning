@@ -1,20 +1,22 @@
-.input-text {
-  height: 35px;
-  width: 235px;
-  border-radius: 5px;
+.textinput {
+  height: 2.19em;
+  width: 100%;
+  border-radius: 0.31em;
   background-color: var(--default-white);
+  padding: 0 1em;
+  margin: 0.25em 0;
 }
 
-.input-text:invalid {
-  border: 2px solid var(--border-error);
+.textinput:invalid {
+  outline: 0.13em solid var(--border-error);
 }
 
-.input-text:focus {
-  border: 2px solid var(--border-focus);
+.textinput:focus {
+  outline: 0.13em solid var(--border-focus);
 }
 
-.input-text-image {
-  background-position: right 19px center;
+.textinput-image {
+  background-position: right 1.19em center;
   background-repeat: no-repeat;
-  background-size: 30px;
+  background-size: 1.88em;
 }

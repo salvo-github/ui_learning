@@ -11,3 +11,7 @@
   background-image: unset;
   padding: 0.88em 0;
 }
+
+.pdp__modal-textarea--height {
+  height: 8.19em;
+}

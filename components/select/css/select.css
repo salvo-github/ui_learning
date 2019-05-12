@@ -1,7 +1,9 @@
 .select {
-  height: 35px;
-  width: 235px;
-  border-radius: 5px;
+  margin: 0.25em 0;
+  padding: 0 1em;
+  height: 2.19em;
+  width: 100%;
+  border-radius: 0.31em;
 }
 
 .select--green {
@@ -9,7 +11,15 @@
   background-color: var(--theme-seconday-color);
 }
 
+.select--green:focus {
+  outline: 0.13em solid var(--default-white);
+}
+
 .select--white {
   color: var(--default-black);
   background-color: var(--default-white);
+}
+
+.select--white:focus {
+  outline: 0.13em solid var(--border-focus);
 }

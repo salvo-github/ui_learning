@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Product Admin</title>
   <link rel="stylesheet" href="../../common/css/common.css">
+  <link rel="stylesheet" href="../../modal/css/modal.css">
+  <link rel="stylesheet" href="../../form/css/form.css">
   <link rel="stylesheet" href="../../pdp/css/pdp.css">
 </head>
 
@@ -55,15 +57,18 @@
                 <br class="h3">
                 <p class="h3 card__admin-action">You can <a class="card__admin-action--link"
                     href="javascript:void(0);">add
-                    5 more</a>. You can also <a class="card__admin-action--link" href="javascript:void(0);">edit</a>
-                  details or <a class="card__admin-action--link" href="javascript:void(0);">delete</a>
+                    5 more</a>. You can also <a class="card__admin-action--link" href="javascript:void(0);"
+                    onclick="return modalToggle('modal__edit')">edit</a>
+                  details or <a class="card__admin-action--link" href="javascript:void(0);"
+                    onclick="return modalToggle('modal__delete');">delete</a>
                   them.</p>
               </div>
               <div class="card__cta">
                 <p class="h1 h--bold  card__info-price">47.95 <span
                     class="h--lighter h--smaller card__info-price--extra">(9
                     items left)</span></p>
-                <button class="button button--primary button--regular"><span class="h5">Buy</span></button>
+                <button class="button button--primary button--regular" onclick="return modalToggle('modal__buy');"><span
+                    class="h5">Buy</span></button>
               </div>
             </section>
           </article>
@@ -77,6 +82,100 @@
       </p>
     </footer>
   </div>
+  <div class="modal modal--close" id="modal__edit">
+    <div class="modal__header">
+      <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Edit "Active Coat"</h2>
+    </div>
+    <div class="modal__body">
+      <div class="modal__main">
+        <form class="form" action="">
+          <div class="form__field">
+            <p><label class="h3" for="name">Name:</label></p>
+            <input class="h5 textinput" type="text" name="name" id="name">
+          </div>
+          <div class="form__field">
+            <p><label class="h3" for="category">Category:</label></p>
+            <select class="h5 select select--white" name="category" id="category">
+              <option value="">Active wear</option>
+              <option value="">Other</option>
+            </select>
+          </div>
+          <div class="form__field">
+            <p class="h3">Gender:</p>
+            <div class="radio__wrapper">
+              <input class="radio" type="radio" name="gender" id="gender_man">
+              <label class="h5 radio__label" for="gender_man">Man</label>
+              <input class="radio" type="radio" name="gender" id="gender_woman">
+              <label class="h5 radio__label" for="gender_woman">Woman</label>
+              <input class="radio" type="radio" name="gender" id="gender_unisex">
+              <label class="h5 radio__label" for="gender_unisex">Unisex</label>
+            </div>
+          </div>
+          <div class="form__field">
+            <p><label class="h3" for="description">Description:</label></p>
+            <textarea class="h5 pdp__modal-textarea--height textarea" type="text"></textarea>
+          </div>
+          <div class="form__field">
+            <p><label class="h3" for="image_url">Link to image:</label></p>
+            <input class="h5 textinput" type="url" name="image_url" id="image_url">
+          </div>
+          <div class="form__field">
+            <img src="https://via.placeholder.com/301x200" alt="">
+          </div>
+          <div class="form__field">
+            <p><label class="h3" for="price">Price:</label></p>
+            <input class="h5 textinput" type="number" step="any" name="price" id="price">
+          </div>
+          <div class="form__field">
+            <p><label class="h3" for="rating">Rating:</label></p>
+            <select class="h5 select select--white" name="rating" id="rating">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </div>
+          <div class="modal__cta">
+            <button class="button button--secondary button--big"
+              onclick="return modalToggle('modal__edit')">Cancel</button>
+            <button class="button button--primary button--big" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal--close" id="modal__delete">
+    <div class="modal__header">
+      <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Are you sure?</h2>
+    </div>
+    <div class="modal__body">
+      <div class="modal__main">
+        <p class="h1 h--caption h--center">You are trying to delete this product.<br />Are you sure you want this?</p>
+      </div>
+      <div class="modal__cta">
+        <button class="button button--secondary button--big"
+          onclick="return modalToggle('modal__delete')">Cancel</button>
+        <button class="button button--primary button--big" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal--close" id="modal__buy">
+    <div class="modal__header">
+      <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Thank you!</h2>
+    </div>
+    <div class="modal__body">
+      <div class="modal__main">
+        <p class="h1 h--caption h--center">You successfully purchased this item.</p>
+      </div>
+      <div class="modal__cta">
+        <button class="button button--primary button--big" onclick="return modalToggle('modal__buy')">Continue
+          shopping</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay modal--close" id="modal-overlay"></div>
+  <script src="../../modal/js/modal.js"></script>
 </body>
 
 </html>

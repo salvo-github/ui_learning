@@ -58,7 +58,6 @@ ul,
 li,
 fieldset,
 form,
-label,
 legend,
 table,
 caption,
@@ -138,11 +137,31 @@ table {
   border-spacing: 0;
 }
 
-button {
+input,
+label,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
   padding: 0;
-  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
   font: inherit;
+}
+
+button {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline-color: transparent;
 }
