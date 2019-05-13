@@ -38,10 +38,11 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
-.card__container {
+.main__card {
   margin-bottom: 1.69em;
+  width: 27.5em;
 }

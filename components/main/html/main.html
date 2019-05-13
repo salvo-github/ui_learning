@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../common/css/common.css">
   <link rel="stylesheet" href="../../form/css/form.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../../common/css/mediaquery.css">
 </head>
 
 <body>
@@ -32,7 +33,7 @@
           <input class="h5 textinput textinput-icon filters__icon--fbt textinput--narrower" type="text"
             name="filterbytext" id="filterbytext" form="filters__form_id" placeholder="Filter by text...">
           <div id="filters__content-id" class="filters__content element--close">
-            <form id="filters__form_id" class="form" action="">
+            <form id="filters__form_id" class="form form__filters" action="">
               <div class="filters__field-wrapper">
                 <p class="h3">Availability:</p>
                 <input class="h5 tgl tgl-light" type="checkbox" name="availability" id="availability">
@@ -73,7 +74,7 @@
         </section>
 
         <div class="cards">
-          <div class="card__container">
+          <div class="main__card">
             <article class="card">
               <figure class="card__figure">
                 <img class="figure__image" src="../../../media/products/1.jpg" />

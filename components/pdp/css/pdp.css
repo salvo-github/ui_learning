@@ -1,7 +1,7 @@
 @import url(../../navigation/css/navigation.css);
 @import url(../../card/css/card.css);
 
-.card__container {
+.pdp__card {
   padding: 1.25em 1.25em 0;
   background-image: url(../../../media/products/modal-bg.png);
   background-repeat: repeat;

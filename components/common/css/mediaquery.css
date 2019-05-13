@@ -1,0 +1,36 @@
+@media (min-width: 800px) {
+
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .header__content {
+    max-width: 50em;
+  }
+
+  .main__content {
+    max-width: 50em;
+    padding: 0 1.56em;
+  }
+
+  .main__card {
+    width: 22.5em;
+  }
+
+  .filters {
+    justify-content: flex-end;
+  }
+
+  .filters .button {
+    margin: 0 0.94em;
+  }
+
+  .form__filters {
+    display: flex;
+  }
+
+  .filters__field-wrapper {
+    flex: 1 1 auto;
+  }
+}
+
+
