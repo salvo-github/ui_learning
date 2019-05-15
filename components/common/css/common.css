@@ -26,7 +26,6 @@ body {
 }
 
 .main__content {
-  position: relative;
   padding: 0 1.25em;
   max-width: 30em;
   flex: 1 1 auto;

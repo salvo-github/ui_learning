@@ -9,6 +9,10 @@
   margin-bottom: 1.25em;
 }
 
+.form_field--image {
+  margin-top: 1.25em;
+}
+
 .form {
   width: 100%;
 }

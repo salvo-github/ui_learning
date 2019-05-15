@@ -91,53 +91,55 @@
     <div class="modal__body">
       <div class="modal__main">
         <form class="form" action="">
-          <div class="form__field">
-            <p><label class="h3" for="name">Name:</label></p>
-            <input class="h5 textinput" type="text" name="name" id="name">
-          </div>
-          <div class="form__field">
-            <p><label class="h3" for="category">Category:</label></p>
-            <select class="h5 select select--white select__arrow select__arrow--green" name="category" id="category">
-              <option value="">Active wear</option>
-              <option value="">Other</option>
-            </select>
-          </div>
-          <div class="form__field">
-            <p class="h3">Gender:</p>
-            <div class="radio__wrapper">
-              <input class="radio" type="radio" name="gender" id="gender_man">
-              <label class="h5 radio__label" for="gender_man">Man</label>
-              <input class="radio" type="radio" name="gender" id="gender_woman">
-              <label class="h5 radio__label" for="gender_woman">Woman</label>
-              <input class="radio" type="radio" name="gender" id="gender_unisex">
-              <label class="h5 radio__label" for="gender_unisex">Unisex</label>
+          <section class="column">
+            <div class="form__field">
+              <p><label class="h3" for="name">Name:</label></p>
+              <input class="h5 textinput" type="text" name="name" id="name">
             </div>
-          </div>
-          <div class="form__field">
-            <p><label class="h3" for="description">Description:</label></p>
-            <textarea class="h5 pdp__modal-textarea--height textarea"></textarea>
-          </div>
-          <div class="form__field">
-            <p><label class="h3" for="image_url">Link to image:</label></p>
-            <input class="h5 textinput" type="url" name="image_url" id="image_url">
-          </div>
-          <div class="form__field">
-            <img src="https://via.placeholder.com/301x200" alt="">
-          </div>
-          <div class="form__field">
-            <p><label class="h3" for="price">Price:</label></p>
-            <input class="h5 textinput" type="number" step="any" name="price" id="price">
-          </div>
-          <div class="form__field">
-            <p><label class="h3" for="rating">Rating:</label></p>
-            <select class="h5 select select--white select__arrow select__arrow--green" name="rating" id="rating">
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </div>
+            <div class="form__field">
+              <p><label class="h3" for="category">Category:</label></p>
+              <select class="h5 select select--white select__arrow select__arrow--green" name="category" id="category">
+                <option value="">Active wear</option>
+                <option value="">Other</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <p class="h3">Gender:</p>
+              <div class="radio__wrapper">
+                <input class="radio" type="radio" name="gender" id="gender_man">
+                <label class="h5 radio__label" for="gender_man">Man</label>
+                <input class="radio" type="radio" name="gender" id="gender_woman">
+                <label class="h5 radio__label" for="gender_woman">Woman</label>
+                <input class="radio" type="radio" name="gender" id="gender_unisex">
+                <label class="h5 radio__label" for="gender_unisex">Unisex</label>
+              </div>
+            </div>
+            <div class="form__field">
+              <p><label class="h3" for="description">Description:</label></p>
+              <textarea class="h5 pdp__modal-textarea--height textarea"></textarea>
+            </div>
+          </section>
+          <section class="column">
+            <div class="form__field">
+              <p><label class="h3" for="image_url">Link to image:</label></p>
+              <input class="h5 textinput" type="url" name="image_url" id="image_url">
+              <img class="form_field--image" src="https://via.placeholder.com/301x200" alt="">
+            </div>
+            <div class="form__field">
+              <p><label class="h3" for="price">Price:</label></p>
+              <input class="h5 textinput" type="number" step="any" name="price" id="price">
+            </div>
+            <div class="form__field">
+              <p><label class="h3" for="rating">Rating:</label></p>
+              <select class="h5 select select--white select__arrow select__arrow--green" name="rating" id="rating">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </div>
+          </section>
           <div class="modal__cta">
             <button class="button button--secondary button--big"
               onclick="return toggleDisplay('modal__edit')">Cancel</button>

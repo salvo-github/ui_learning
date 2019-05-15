@@ -2,12 +2,13 @@
 @import url(../../card/css/card.css);
 
 .pdp__card {
-  padding: 1.25em 1.25em 0;
+  /* padding: 1.25em 1.25em 0; */
+  padding: 1.25em;
   background-image: url(../../../media/products/modal-bg.png);
   background-repeat: repeat;
 }
 
-.card__info {
+.pdp__card .card__info {
   background-image: unset;
   padding: 0.88em 0;
 }

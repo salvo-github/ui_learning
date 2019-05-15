@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Product Admin</title>
   <link rel="stylesheet" href="../../common/css/common.css">
+  <link rel="stylesheet" href="../../modal/css/modal.css">
   <link rel="stylesheet" href="../../pdp/css/pdp.css">
+  <link rel="stylesheet" href="../../common/css/mediaquery.css">
 </head>
 
 <body>
@@ -18,7 +20,8 @@
         <div class="header__logo">
         </div>
         <div class="header__login">
-          <p class="h4 header__login-status header__login-status--logged">Hello, <span class="h--italic">John_Doe</span></p>
+          <p class="h4 header__login-status header__login-status--logged">Hello, <span class="h--italic">John_Doe</span>
+          </p>
         </div>
       </div>
     </header>
@@ -30,7 +33,7 @@
           <p class="navigation__category"><span class="h--lighter">Category: </span>Man / Active wear</p>
         </nav>
 
-        <div class="card__container">
+        <div class="pdp__card">
           <article class="card">
             <figure class="card__figure">
               <img class="figure__image" src="../../../media/products/1.jpg" />
@@ -57,7 +60,8 @@
                 <p class="h1 h--bold  card__info-price">47.95 <span
                     class="h--lighter h--smaller card__info-price--extra">(9
                     items left)</span></p>
-                <button class="button button--primary button--regular"><span class="h5">Buy</span></button>
+                <button class="button button--primary button--regular"
+                  onclick="return toggleDisplay('modal__buy');"><span class="h5">Buy</span></button>
               </div>
             </section>
           </article>
@@ -71,6 +75,22 @@
       </p>
     </footer>
   </div>
+  <div class="modal element--close" id="modal__buy">
+    <div class="modal__header">
+      <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Thank you!</h2>
+    </div>
+    <div class="modal__body">
+      <div class="modal__main">
+        <p class="h1 h--caption h--center">You successfully purchased this item.</p>
+      </div>
+      <div class="modal__cta">
+        <button class="button button--primary button--big" onclick="return toggleDisplay('modal__buy')">Continue
+          shopping</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay element--close" id="modal-overlay"></div>
+  <script src="../../modal/js/modal.js"></script>
 </body>
 
 </html>
