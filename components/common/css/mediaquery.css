@@ -1,4 +1,4 @@
-@media (min-width: 800px) and (max-width: 1000px) {
+@media (min-width: 50em) and (max-width: 62.5em) {
   .header__content {
     max-width: 50em;
   }
@@ -9,7 +9,7 @@
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 50em) {
   .main__card {
     flex-basis: 49%;
   }
@@ -93,7 +93,7 @@
 
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 62.5em) {
   .main__card {
     flex-basis: 33%;
   }
