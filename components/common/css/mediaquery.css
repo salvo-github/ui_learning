@@ -11,7 +11,7 @@
 
 @media (min-width: 800px) {
   .main__card {
-    width: 22.5em;
+    flex-basis: 49%;
   }
 
   .filters {
@@ -94,6 +94,10 @@
 }
 
 @media (min-width: 1000px) {
+  .main__card {
+    flex-basis: 33%;
+  }
+
   .header__content {
     max-width: 75em;
   }
