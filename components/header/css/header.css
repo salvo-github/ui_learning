@@ -17,18 +17,6 @@
   align-items: center;
 }
 
-/* @media (min-width: 800px) and (max-width: 1000px) {
-  .header__content {
-    max-width: 800px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .header__content {
-    max-width: 1200px;
-  }
-} */
-
 .header__logo::after {
   padding-left: 1.5em;
   content: url(../../../media/svg/logo.svg);

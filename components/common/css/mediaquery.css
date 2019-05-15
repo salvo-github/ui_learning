@@ -59,7 +59,7 @@
     border-top: 0.063em solid var(--border-light);
   }
 
-  .modal {
+  .modal :not(#modal_login:nth-child(1n)) {
     width: 45.63em;
   }
 

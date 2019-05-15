@@ -35,11 +35,3 @@ body {
 .element--close {
   display: none;
 }
-
-/*
-
-@media (min-width: 1000px) {
-  .main__content {
-    max-width: 1200px;
-  }
-} */

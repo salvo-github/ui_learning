@@ -4,7 +4,6 @@
 
 .radio {
   display: none;
-  /* opacity: 0; */
 }
 
 .radio+.radio__label,
