@@ -36,6 +36,7 @@
 
   .pdp__card .card {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
@@ -45,6 +46,7 @@
   }
 
   .pdp__card .card__info {
+    flex-grow: unset;
     flex-basis: 50%;
     padding: unset;
   }

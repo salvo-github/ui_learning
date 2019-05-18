@@ -1,4 +1,6 @@
 .card {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -37,6 +39,7 @@
 }
 
 .card__info {
+  flex-grow: 1;
   background-image: url(../../../media/products/modal-bg.png);
   background-repeat: repeat;
   color: var(--default-black);
