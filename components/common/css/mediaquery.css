@@ -34,10 +34,6 @@
     flex: 1 1 auto;
   }
 
-  .pdp__card {
-    height: 24.38em;
-  }
-
   .pdp__card .card {
     display: flex;
     justify-content: space-between;
@@ -49,7 +45,6 @@
   }
 
   .pdp__card .card__info {
-    height: 100%;
     flex-basis: 50%;
     padding: unset;
   }
