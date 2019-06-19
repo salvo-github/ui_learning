@@ -36,7 +36,12 @@
         <div class="pdp__card">
           <article class="card">
             <figure class="card__figure">
-              <img class="figure__image" src="../../../media/products/1.jpg" />
+              <!-- <img class="figure__image" src="../../../media/products/1.jpg" /> -->
+              <simple-slider class="pdp__card--slider">
+                <img src="../../../media/products/1.jpg">
+                <img src="../../../media/products/05_407044.jpg">
+                <img src="../../../media/products/ladies-coat-500x500.jpg">
+              </simple-slider>
               <figcaption class="figure__caption">
                 <ul class="caption__vote">
                   <li class="vote vote--full"></li>
@@ -91,6 +96,7 @@
   </div>
   <div class="modal-overlay element--close" id="modal-overlay"></div>
   <script src="../../modal/js/modal.js"></script>
+  <link rel="import" href="../../slider/html/slider.html">
 </body>
 
 </html>

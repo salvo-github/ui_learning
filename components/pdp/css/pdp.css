@@ -15,3 +15,12 @@
 .pdp__modal-textarea--height {
   height: 8.19em;
 }
+
+.pdp__card--slider {
+  /* width: 27.5em;
+  height: 18.34em; */
+  /* max-width: 27.5em; */
+  height: 20em;
+  /* height: 100%; */
+  max-width: 100%;
+}
