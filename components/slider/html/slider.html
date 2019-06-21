@@ -6,24 +6,24 @@
   <template id="simple-slider__template">
     <style>
       :host {
+        /* prevent selection with multiple clicks */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+
+        margin: auto;
         display: block;
         position: relative;
         max-height: 100%;
         max-width: 100%;
-        /* webkit (safari, chrome) browsers */
-        -webkit-user-select: none;
-        /* mozilla browsers */
-        -moz-user-select: none;
-        /* webkit (konqueror) browsers */
-        -khtml-user-select: none;
-        /* IE10+ */
-        -ms-user-select: none;
+
         z-index: 0;
         transition: all 0.3s;
       }
 
       :host(:hover) {
-
+        transform-origin: center;
         transform: scale(1.2);
         z-index: 1;
       }
@@ -32,8 +32,8 @@
         visibility: visible;
       }
 
-      .elementToFadeInAndOut {
-        animation: fadeInOut 1s linear forwards;
+      .simple-slider__image--fade {
+        animation: fadeInOut 1s linear;
       }
 
       @keyframes fadeInOut {
@@ -58,6 +58,12 @@
         z-index: 1;
       }
 
+      .simple-slider__image--watermark {
+        z-index: 2;
+        opacity: 0.5;
+        color: white;
+      }
+
       .simple-slider__control {
         position: absolute;
         height: 100%;
@@ -66,7 +72,8 @@
         z-index: 2;
       }
 
-      .simple-slider__control::before {
+      .simple-slider__control span {
+        z-index: 3;
         content: "";
         position: absolute;
         width: 2em;
@@ -82,8 +89,7 @@
         left: 0;
       }
 
-      .simple-slider__control--prev::before {
-        -webkit-transform: translate(-50%, -50%)rotate(90deg);
+      .simple-slider__control--prev span {
         transform: translate(-50%, -50%) rotate(90deg);
       }
 
@@ -93,20 +99,24 @@
         right: 0;
       }
 
-      .simple-slider__control--next::before {
-        -webkit-transform: translate(-50%, -50%)rotate(-90deg);
+      .simple-slider__control--next span {
         transform: translate(-50%, -50%) rotate(-90deg);
       }
     </style>
-    <div class="simple-slider__control simple-slider__control--prev" prev></div>
+    <div class="simple-slider__control simple-slider__control--prev" prev>
+      <span></span>
+    </div>
     <img class="simple-slider__image" src="">
-    <div class="simple-slider__control simple-slider__control--next"></div>
+    <div class="simple-slider__image simple-slider__image--watermark">Demo Shop</div>
+    <div class="simple-slider__control simple-slider__control--next">
+      <span></span>
+    </div>
   </template>
 
-  <simple-slider style="width: 300px; height: 300px;">
+  <simple-slider style="width: 300px; height: 300px;" data-watermark='Demo Shop'>
     <img src="../../../media/products/1.jpg">
-    <img src="../../../media/products/05_407044.jpg">
-    <img src="../../../media/products/ladies-coat-500x500.jpg">
+    <img src="../../../media/products/2.jpg">
+    <img src="../../../media/products/3.jpg">
   </simple-slider>
   <link rel="stylesheet" href="../css/slider.css">
   <script src="../js/slider.js"></script>

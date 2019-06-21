@@ -10,18 +10,25 @@ class SimpleSlider extends HTMLElement {
 
     const shadow = this.attachShadow({ mode: 'open' });
 
-    var content = ((document.querySelector('link[rel="import"]')) && document.querySelector('link[rel="import"]').import) || document;
+    var shadowContent = ((document.querySelector('link[rel="import"]')) && document.querySelector('link[rel="import"]').import) || document;
 
-    shadow.append(content.getElementById('simple-slider__template').content.cloneNode(true));
+    shadow.append(shadowContent.getElementById('simple-slider__template').content.cloneNode(true));
 
     this.imgElement = shadow.querySelector('.simple-slider__image');
+
+    this.getLinks();
+
+    if (this.links.length) {
+      this.index = 0;
+      this.render(this.index);
+    }
   }
 
   connectedCallback() {
 
     this.init();
 
-    this.shadowRoot.querySelectorAll('.simple-slider__control').forEach(element => {
+    this.shadowRoot.querySelectorAll('.simple-slider__control span').forEach(element => {
       element.addEventListener('click', event => {
         if (event.target.classList.contains('simple-slider__control--prev')) {
           this.switch(-1);
@@ -33,27 +40,13 @@ class SimpleSlider extends HTMLElement {
         this.render(this.index);
       });
     });
-
-
-
-    if (this.style) {
-      this.imgElement.style.cssText = this.style.cssText;
-    }
-
-    this.getLinks();
-
-    if (this.links.length) {
-      this.index = 0;
-      this.render(this.index);
-      // this.startAutoplay();
-    }
   }
 
   resetAnimation() {
-    this.imgElement.classList.remove('elementToFadeInAndOut');
+    this.imgElement.classList.remove('simple-slider__image--fade');
     //https://css-tricks.com/restart-css-animation/
     void this.imgElement.offsetWidth;
-    this.imgElement.classList.add('elementToFadeInAndOut');
+    this.imgElement.classList.add('simple-slider__image--fade');
   }
 
   startAutoplay() {
