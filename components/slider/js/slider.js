@@ -30,23 +30,46 @@ class SimpleSlider extends HTMLElement {
 
     this.shadowRoot.querySelectorAll('.simple-slider__control span').forEach(element => {
       element.addEventListener('click', event => {
-        if (event.target.classList.contains('simple-slider__control--prev')) {
+        const imgWidth = this.imgElement.getBoundingClientRect().width;
+
+
+        let watermarkStartingCoord;
+        if (event.target.parentElement.classList.contains('simple-slider__control--prev')) {
+          watermarkStartingCoord = -150 - imgWidth;
           this.switch(-1);
         } else {
+          watermarkStartingCoord = +imgWidth + 150;
           this.switch(1);
         }
 
-        this.resetAnimation();
+        this.shadowRoot.querySelector('.simple-slider__watermark').style.cssText = '';
+
+        this.shadowRoot.querySelector('.simple-slider__watermark').style.left = watermarkStartingCoord;
+        // this.shadowRoot.querySelector('.simple-slider__watermark').style.transform = `translateY(-50%)`;
+
+        void this.shadowRoot.querySelector('.simple-slider__watermark').offsetWidth;
+
+        this.shadowRoot.querySelector('.simple-slider__watermark').style.transition = `all 1s`;
+
+        this.shadowRoot.querySelector('.simple-slider__watermark').style.left = '';
+        this.shadowRoot.querySelector('.simple-slider__watermark').style.transform = `translate(-50%, -50%) rotate(30deg)`;
+        this.shadowRoot.querySelector('.simple-slider__watermark').style.opacity = `0.5`;
+
+
+
+        // this.shadowRoot.querySelector('.simple-slider__watermark').classList.add('simple-slider__watermark--slide');
+
+        this.resetImgEffect('simple-slider__image--fade');
         this.render(this.index);
       });
     });
   }
 
-  resetAnimation() {
-    this.imgElement.classList.remove('simple-slider__image--fade');
+  resetImgEffect(effectClass = '') {
+    this.imgElement.classList.remove(effectClass);
     //https://css-tricks.com/restart-css-animation/
     void this.imgElement.offsetWidth;
-    this.imgElement.classList.add('simple-slider__image--fade');
+    this.imgElement.classList.add(effectClass);
   }
 
   startAutoplay() {
