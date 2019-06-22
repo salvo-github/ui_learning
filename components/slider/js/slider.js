@@ -1,27 +1,27 @@
-class SimpleSlider extends HTMLElement {
+customElements.define("simple-slider", class extends HTMLElement {
 
   constructor() {
     super();
+
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = this.getTemplate();
+
     this.links = [];
     this.index;
   }
 
   init() {
 
-    const shadow = this.attachShadow({ mode: 'open' });
+    this.imgElement = this.shadowRoot.querySelector('.simple-slider__image');
 
-    var shadowContent = ((document.querySelector('link[rel="import"]')) && document.querySelector('link[rel="import"]').import) || document;
-
-    shadow.append(shadowContent.getElementById('simple-slider__template').content.cloneNode(true));
-
-    this.imgElement = shadow.querySelector('.simple-slider__image');
-
-    this.getLinks();
+    this.initLinks();
 
     if (this.links.length) {
       this.index = 0;
-      this.render(this.index);
+      this.reloadImagebyCurrentIndex();
     }
+
+    this.initWatermark();
   }
 
   connectedCallback() {
@@ -30,39 +30,58 @@ class SimpleSlider extends HTMLElement {
 
     this.shadowRoot.querySelectorAll('.simple-slider__control span').forEach(element => {
       element.addEventListener('click', event => {
-        const imgWidth = this.imgElement.getBoundingClientRect().width;
 
-
-        let watermarkStartingCoord;
         if (event.target.parentElement.classList.contains('simple-slider__control--prev')) {
-          watermarkStartingCoord = -150 - imgWidth;
-          this.switch(-1);
+          this.switchIndexByOffset(-1);
+          this.setWatermarkStartingPosition('left');
         } else {
-          watermarkStartingCoord = +imgWidth + 150;
-          this.switch(1);
+          this.setWatermarkStartingPosition('right');
+          this.switchIndexByOffset(1);
         }
 
-        this.shadowRoot.querySelector('.simple-slider__watermark').style.cssText = '';
-
-        this.shadowRoot.querySelector('.simple-slider__watermark').style.left = watermarkStartingCoord;
-        // this.shadowRoot.querySelector('.simple-slider__watermark').style.transform = `translateY(-50%)`;
-
-        void this.shadowRoot.querySelector('.simple-slider__watermark').offsetWidth;
-
-        this.shadowRoot.querySelector('.simple-slider__watermark').style.transition = `all 1s`;
-
-        this.shadowRoot.querySelector('.simple-slider__watermark').style.left = '';
-        this.shadowRoot.querySelector('.simple-slider__watermark').style.transform = `translate(-50%, -50%) rotate(30deg)`;
-        this.shadowRoot.querySelector('.simple-slider__watermark').style.opacity = `0.5`;
-
-
-
-        // this.shadowRoot.querySelector('.simple-slider__watermark').classList.add('simple-slider__watermark--slide');
+        this.startWatermarkSlide();
 
         this.resetImgEffect('simple-slider__image--fade');
-        this.render(this.index);
+        this.reloadImagebyCurrentIndex();
       });
     });
+  }
+
+  initWatermark() {
+    if (this.dataset.watermark) {
+      this.shadowRoot.querySelector('.simple-slider__watermark').textContent = this.dataset.watermark;
+    }
+  }
+
+  setWatermarkStartingPosition(position) {
+
+    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__watermark');
+
+    let watermarkStartingCoord;
+    if (position == 'left') {
+      watermarkStartingCoord = (0 - watermarkElement.offsetWidth) + 'px';
+    } else {
+      watermarkStartingCoord = '100%';
+    }
+
+    watermarkElement.style.cssText = '';
+
+    watermarkElement.style.left = watermarkStartingCoord;
+    watermarkElement.style.transform = `translateY(-50%)`;
+  }
+
+  startWatermarkSlide() {
+
+    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__watermark');
+
+    // reset animation
+    void watermarkElement.offsetWidth;
+
+    watermarkElement.style.transition = `all 1s`;
+
+    watermarkElement.style.left = '';
+    watermarkElement.style.transform = `translate(-50%, -50%)`;
+    watermarkElement.style.opacity = 0.5;
   }
 
   resetImgEffect(effectClass = '') {
@@ -74,25 +93,159 @@ class SimpleSlider extends HTMLElement {
 
   startAutoplay() {
     this.autoplay = setInterval(() => {
-      this.switch(1);
-      this.render(this.index);
+      this.switchIndexByOffset(1);
+      this.reloadImagebyCurrentIndex();
     }, 2000);
   }
 
-  switch(amount) {
-    // jsbug https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.htm
-    return this.index = ((this.index + this.links.length + amount) % this.links.length);
+  switchIndexByOffset(offset) {
+    // jsbug https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.html
+    return this.index = ((this.index + this.links.length + offset) % this.links.length);
   }
 
-  render(index) {
-    this.imgElement.src = this.links[index];
+  reloadImagebyCurrentIndex() {
+    this.imgElement.src = this.links[this.index];
   }
 
-  getLinks() {
+  initLinks() {
     this.querySelectorAll('img').forEach(element => {
       this.links.push(element.src);
     });
   }
-}
 
-customElements.define("simple-slider", SimpleSlider);
+  getTemplate() {
+    return `
+      ${this.getTemplateCss()}
+      ${this.getTemplateHtml()}
+    `;
+  }
+
+  getTemplateHtml() {
+    return `
+      <div class="simple-slider__control simple-slider__control--prev" prev>
+        <span></span>
+      </div>
+      <img class="simple-slider__image" src="">
+      <div class="simple-slider__image simple-slider__watermark"></div>
+      <div class="simple-slider__control simple-slider__control--next">
+        <span></span>
+      </div>
+    `;
+  }
+
+  getTemplateCss() {
+    return `
+      <style>
+        :host {
+          /* prevent selection with multiple clicks */
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -khtml-user-select: none;
+          -ms-user-select: none;
+
+          margin: auto;
+          display: block;
+          position: relative;
+          /* max-height: 100%; */
+          max-width: 100%;
+
+          z-index: 0;
+          overflow: hidden;
+        }
+
+        :host(:hover) {
+          animation: scaleAnim 0.3s forwards;
+        }
+
+        @keyframes scaleAnim {
+          0% {
+            z-index: 1;
+          }
+
+          100% {
+            z-index: 1;
+            transform-origin: center;
+            transform: scale(1.2);
+          }
+        }
+
+        :host(:hover) .simple-slider__control {
+          visibility: visible;
+        }
+
+        .simple-slider__image--fade {
+          animation: fadeInOut 0.3s linear;
+        }
+
+        @keyframes fadeInOut {
+          0% {
+            opacity: 0;
+          }
+
+          100% {
+            opacity: 1;
+          }
+        }
+
+        .simple-slider__image {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: absolute;
+          display: inline-block;
+          object-fit: contain;
+          /* max-height: 100%; */
+          max-width: 100%;
+          z-index: 1;
+        }
+
+        .simple-slider__watermark {
+          white-space: nowrap;
+          font-size: 2em;
+          z-index: 2;
+          opacity: 0.5;
+          color: white;
+        }
+
+        .simple-slider__control {
+          position: absolute;
+          height: 100%;
+          width: 15%;
+          visibility: hidden;
+          z-index: 2;
+        }
+
+        .simple-slider__control span {
+          z-index: 3;
+          content: "";
+          position: absolute;
+          width: 2em;
+          height: 2em;
+          background: url(../../../media/svg/down--white.svg) 0 0 no-repeat;
+          background-color: rgba(1, 1, 1, 0.8);
+          top: 50%;
+          left: 50%;
+        }
+
+        .simple-slider__control--prev {
+          top: 0;
+          left: 0;
+        }
+
+        .simple-slider__control--prev span {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+
+        .simple-slider__control--next {
+          top: 0;
+          right: 0;
+        }
+
+        .simple-slider__control--next span {
+          transform: translate(-50%, -50%) rotate(-90deg);
+        }
+      </style>
+    `;
+  }
+});
