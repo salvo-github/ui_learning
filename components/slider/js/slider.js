@@ -12,13 +12,14 @@ customElements.define("simple-slider", class extends HTMLElement {
 
   init() {
 
-    this.imgElement = this.shadowRoot.querySelector('.simple-slider__image');
+    this.imgElement = this.shadowRoot.querySelector('img.simple-slider__image');
 
     this.initLinks();
 
     if (this.links.length) {
       this.index = 0;
       this.reloadImagebyCurrentIndex();
+      this.renderCaptionByCurrentIndex();
     }
 
     this.initWatermark();
@@ -33,16 +34,15 @@ customElements.define("simple-slider", class extends HTMLElement {
 
         if (event.target.parentElement.classList.contains('simple-slider__control--prev')) {
           this.switchIndexByOffset(-1);
-          this.setWatermarkStartingPosition('left');
+          this.setCaptionStartingPosition('left');
         } else {
-          this.setWatermarkStartingPosition('right');
+          this.setCaptionStartingPosition('right');
           this.switchIndexByOffset(1);
         }
 
-        this.startWatermarkSlide();
-
         this.resetImgEffect('simple-slider__image--fade');
         this.reloadImagebyCurrentIndex();
+        this.renderCaptionByCurrentIndex();
       });
     });
   }
@@ -53,9 +53,9 @@ customElements.define("simple-slider", class extends HTMLElement {
     }
   }
 
-  setWatermarkStartingPosition(position) {
+  setCaptionStartingPosition(position) {
 
-    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__watermark');
+    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__caption');
 
     let watermarkStartingCoord;
     if (position == 'left') {
@@ -67,12 +67,15 @@ customElements.define("simple-slider", class extends HTMLElement {
     watermarkElement.style.cssText = '';
 
     watermarkElement.style.left = watermarkStartingCoord;
-    watermarkElement.style.transform = `translateY(-50%)`;
+    watermarkElement.style.transform = 'translate(0)';
+    return;
   }
 
-  startWatermarkSlide() {
+  renderCaptionByCurrentIndex() {
 
-    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__watermark');
+    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__caption');
+
+    watermarkElement.textContent = this.links[this.index].caption;
 
     // reset animation
     void watermarkElement.offsetWidth;
@@ -80,8 +83,7 @@ customElements.define("simple-slider", class extends HTMLElement {
     watermarkElement.style.transition = `all 1s`;
 
     watermarkElement.style.left = '';
-    watermarkElement.style.transform = `translate(-50%, -50%)`;
-    watermarkElement.style.opacity = 0.5;
+    watermarkElement.style.transform = '';
   }
 
   resetImgEffect(effectClass = '') {
@@ -104,7 +106,9 @@ customElements.define("simple-slider", class extends HTMLElement {
   }
 
   reloadImagebyCurrentIndex() {
-    this.imgElement.src = this.links[this.index].src;
+    const src = this.links[this.index].src;
+    this.imgElement.src = src;
+    return;
   }
 
   initLinks() {
@@ -131,8 +135,9 @@ customElements.define("simple-slider", class extends HTMLElement {
       <div class="simple-slider__control simple-slider__control--prev" prev>
         <span></span>
       </div>
-      <img class="simple-slider__image" src="">
       <div class="simple-slider__image simple-slider__watermark"></div>
+      <img class="simple-slider__image" src="">
+      <div class="simple-slider__image simple-slider__caption"></div>
       <div class="simple-slider__control simple-slider__control--next">
         <span></span>
       </div>
@@ -194,9 +199,9 @@ customElements.define("simple-slider", class extends HTMLElement {
         }
 
         .simple-slider__image {
-          top: 50%;
+          /* top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); */
           position: absolute;
           display: inline-block;
           object-fit: contain;
@@ -211,12 +216,25 @@ customElements.define("simple-slider", class extends HTMLElement {
           z-index: 2;
           opacity: 0.5;
           color: white;
+          top: 5%;
+          right: 5%;
+        }
+
+        .simple-slider__caption {
+          width: 80%;
+          font-size: 0.86em;
+          z-index: 2;
+          opacity: 1;
+          color: white;
+          bottom: 20%;
+          left: 50%;
+          transform: translate(-50%);
         }
 
         .simple-slider__control {
           position: absolute;
           height: 100%;
-          width: 2em;
+          width: 10%;
           visibility: hidden;
           z-index: 2;
         }
