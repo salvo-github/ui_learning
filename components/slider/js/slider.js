@@ -211,10 +211,11 @@ customElements.define("simple-slider", class extends HTMLElement {
         }
 
         .simple-slider__watermark {
+          font-weight: bold;
           white-space: nowrap;
           font-size: 2em;
           z-index: 2;
-          opacity: 0.5;
+          opacity: 0.3;
           color: white;
           top: 5%;
           right: 5%;
