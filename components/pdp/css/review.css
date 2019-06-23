@@ -1,0 +1,56 @@
+.review__add {
+  text-align: center;
+  color: white;
+  margin: 1.5em 0;
+}
+
+.review__add span {
+  display: block;
+}
+
+.review__add span a {
+  color: var(--review-yellow);
+}
+
+.review__preview {
+  color: var(--default-white);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+}
+
+.review__preview-username {
+  margin-bottom: 1em;
+}
+
+.review__preview-username span {
+  color: var(--review-yellow);
+}
+
+.row {
+  display: flex;
+}
+
+.review__preview-image {
+  color: var(--review-yellow);
+  width: 4.94em;
+  height: 4.94em;
+}
+
+.review__preview-yourreview {
+  padding-left: 1em;
+  opacity: 0.5;
+  width: 100%;
+}
+
+.review__form {
+  width: 100%;
+  min-height: 18.75em;
+  background-color: bisque;
+}
+
+.review__form {
+  width: 100%;
+  background: url(../../../media/products/modal-bg.png);
+  background-repeat: repeat;
+}

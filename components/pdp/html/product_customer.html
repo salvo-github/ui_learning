@@ -8,8 +8,9 @@
   <title>Product Admin</title>
   <link rel="stylesheet" href="../../common/css/common.css">
   <link rel="stylesheet" href="../../modal/css/modal.css">
-  <link rel="stylesheet" href="../../pdp/css/pdp.css">
+  <link rel="stylesheet" href="../css/pdp.css">
   <link rel="stylesheet" href="../../common/css/mediaquery.css">
+  <link rel="stylesheet" href="../css/review.css">
 </head>
 
 <body>
@@ -75,6 +76,31 @@
           </article>
         </div>
 
+        <div class="pdp__review">
+          <div class="h3 review__add">
+            <span>There is no user reviews for now.</span>
+            <span>Would you like to <a href="javascript:void(0);">share your thoughts with other customers</a>?</span>
+          </div>
+          <div class="review__placeholder">
+
+          </div>
+          <div class="review__list"></div>
+        </div>
+
+        <template id="review__template">
+          <div class="review__preview">
+            <div class="h5 review__preview-username">By <span>Your Name</span> March 4, 2017</div>
+            <div class="row">
+              <img class="review__preview-image" src="../../../media/svg/picture.svg">
+              <div class="h5 h--italic review__preview-yourreview">Start typing and your review text will appear here...
+              </div>
+            </div>
+          </div>
+          <div class="review__form">
+
+          </div>
+        </template>
+
       </div>
     </div>
 
@@ -100,6 +126,7 @@
   <div class="modal-overlay element--close" id="modal-overlay"></div>
   <script src="../../modal/js/modal.js"></script>
   <script type="module" src="../../slider/js/slider.js"></script>
+  <script type="module" src="../js/review.js"></script>
 </body>
 
 </html>
