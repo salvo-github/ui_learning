@@ -104,12 +104,18 @@ customElements.define("simple-slider", class extends HTMLElement {
   }
 
   reloadImagebyCurrentIndex() {
-    this.imgElement.src = this.links[this.index];
+    this.imgElement.src = this.links[this.index].src;
   }
 
   initLinks() {
     this.querySelectorAll('img').forEach(element => {
-      this.links.push(element.src);
+
+      const img = {
+        src: element.src,
+        caption: element.nextSibling.data
+      };
+
+      this.links.push(img);
     });
   }
 
@@ -210,7 +216,7 @@ customElements.define("simple-slider", class extends HTMLElement {
         .simple-slider__control {
           position: absolute;
           height: 100%;
-          width: 15%;
+          width: 2em;
           visibility: hidden;
           z-index: 2;
         }
@@ -219,12 +225,12 @@ customElements.define("simple-slider", class extends HTMLElement {
           z-index: 3;
           content: "";
           position: absolute;
-          width: 2em;
-          height: 2em;
-          background: url(../../../media/svg/down--white.svg) 0 0 no-repeat;
-          background-color: rgba(1, 1, 1, 0.8);
+          width: 1.31em;
+          height: 2.44em;
+          background: url(../../../media/svg/arrow.svg) 0 0 no-repeat;
           top: 50%;
           left: 50%;
+          background-size: 1.31em 2.44em;
         }
 
         .simple-slider__control--prev {
@@ -233,7 +239,7 @@ customElements.define("simple-slider", class extends HTMLElement {
         }
 
         .simple-slider__control--prev span {
-          transform: translate(-50%, -50%) rotate(90deg);
+          transform: translate(-50%, -50%);
         }
 
 
@@ -243,7 +249,7 @@ customElements.define("simple-slider", class extends HTMLElement {
         }
 
         .simple-slider__control--next span {
-          transform: translate(-50%, -50%) rotate(-90deg);
+          transform: translate(-50%, -50%) rotate(180deg);
         }
       </style>
     `;
