@@ -16,11 +16,38 @@
   height: 8.19em;
 }
 
+.pdp__modal-textarea--review {
+  height: 11.13em;
+}
+
+.pdp__modal-textarea--avatar {
+  height: 6.3em;
+  padding: 0.69em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.pdp__modal-textarea--avatar::before {
+  content: 'Image not selected';
+}
+
+.pdp__modal-textarea--avatar::after {
+  width: 4.81em;
+  height: 4.81em;
+  content: '';
+  background-image: url(../../../media/svg/pickup.svg);
+  background-size: 4.81em 4.81em;
+  filter: opacity(0.5);
+}
+
 .pdp__card--slider {
   /* width: 27.5em;
   height: 18.34em; */
   /* max-width: 27.5em; */
+  background-color: white;
   height: 20em;
   /* height: 100%; */
-  max-width: 100%;
+  /* max-width: 100%; */
 }

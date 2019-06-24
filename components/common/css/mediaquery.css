@@ -88,6 +88,20 @@
     width: calc(50% - 0.32em);
   }
 
+  .review__form .form {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+  }
+
+  .review__form .column:nth-child(1) {
+    flex-basis: 29%;
+  }
+
+  .review__form .column:nth-child(2) {
+    flex-basis: 69%;
+  }
+
 }
 
 @media (min-width: 62.5em) {

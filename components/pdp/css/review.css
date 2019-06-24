@@ -44,13 +44,30 @@
 }
 
 .review__form {
+  position: relative;
   width: 100%;
-  min-height: 18.75em;
-  background-color: bisque;
-}
-
-.review__form {
-  width: 100%;
+  padding: 2em;
   background: url(../../../media/products/modal-bg.png);
   background-repeat: repeat;
+  border: 0.19em solid var(--border-main);
+}
+
+.review__form-title {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  height: 2.5em;
+  width: 11.25em;
+  border: 0.19em solid var(--border-main);
+  border-radius: 0.94em;
+  background-color: var(--default-white);
+}
+
+.review__form-title h2 {
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

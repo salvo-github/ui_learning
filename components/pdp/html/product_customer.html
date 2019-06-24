@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/pdp.css">
   <link rel="stylesheet" href="../../common/css/mediaquery.css">
   <link rel="stylesheet" href="../css/review.css">
+  <link rel="stylesheet" href="../../form/css/form.css">
 </head>
 
 <body>
@@ -97,7 +98,35 @@
             </div>
           </div>
           <div class="review__form">
-
+            <div class="review__form-title">
+              <h2 class="h5 h--bold">Edit Your Review</h2>
+            </div>
+            <form class="form" action="">
+              <section class="column">
+                <div class="form__field">
+                  <p><label class="h3" for="username">Enter your name:</label></p>
+                  <input class="h5 textinput" type="text" name="name" id="name">
+                </div>
+                <div class="form__field">
+                  <p><label class="h3" for="avatar">Choose your avatar:</label></p>
+                  <div class="h5 h--italic pdp__modal-textarea--avatar textarea"></div>
+                </div>
+              </section>
+              <section class="column">
+                <div class="form__field">
+                  <p>
+                    <label class="h3" for="review">Write your review:</label>
+                    <span>Rate Product:</span>
+                  </p>
+                  <textarea class="h5 pdp__modal-textarea--review textarea"></textarea>
+                </div>
+              </section>
+              <div class="modal__cta">
+                <button class="button button--secondary button--big"
+                  onclick="return toggleDisplay('modal__edit')">Cancel</button>
+                <button class="button button--primary button--big" type="submit">Submit</button>
+              </div>
+            </form>
           </div>
         </template>
 
