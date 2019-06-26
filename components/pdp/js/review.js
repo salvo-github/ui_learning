@@ -11,6 +11,27 @@ document.querySelector('.review__add a').addEventListener('click', event => {
 
   setCancelAction();
 
+  document.querySelectorAll('.review__button-group--text-actions .button').forEach(element => {
+    element.addEventListener('click', event => {
+      event.preventDefault();
+      console.log('lsflsj');
+      const reviewCommentElement = document.querySelector('.pdp__modal-textarea--review');
+      let startPos = reviewCommentElement.selectionStart;
+      let endPos = reviewCommentElement.selectionEnd;
+      let commentText = reviewCommentElement.value;
+      console.log(commentText);
+      const tagOpen = `[${event.target.dataset.char}]`;
+      const tagClose = `[/${event.target.dataset.char}]`;
+      commentText = [commentText.slice(0, endPos), tagClose, commentText.slice(endPos)].join('');
+      commentText = [commentText.slice(0, startPos), tagOpen, commentText.slice(startPos)].join('');
+      console.log(commentText);
+      reviewCommentElement.innerHTML = commentText;
+      console.log(startPos + ", " + endPos);
+      // moveCursorToEnd(reviewCommentElement);
+      // reviewCommentElement.selectionStart = reviewCommentElement.selectionEnd = reviewCommentElement.value.length;
+      return;
+    });
+  });
 });
 
 function setCancelAction() {
@@ -103,8 +124,9 @@ function bindPreviewElements(element) {
     document.querySelectorAll(`[data-bind="${bindClass}"]`).forEach(elem => {
       if (imgUrl) {
         elem.src = imgUrl
+      } else {
+        elem.innerHTML = element.value;
       }
-      else elem.textContent = element.value;
     })
   }
 }

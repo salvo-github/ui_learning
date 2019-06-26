@@ -5,8 +5,16 @@
 @import url('../../range/css/range.css');
 @import url('../../textarea/css/textarea.css');
 
-.form__field {
+/* .form__field {
   margin-bottom: 1.25em;
+} */
+
+.form__field+.form__field {
+  margin-top: 1.25em;
+}
+
+.column+.column {
+  margin-top: 1.25em;
 }
 
 .form_field--image {

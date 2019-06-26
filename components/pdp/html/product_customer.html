@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="../../common/css/common.css">
   <link rel="stylesheet" href="../../modal/css/modal.css">
   <link rel="stylesheet" href="../css/pdp.css">
-  <link rel="stylesheet" href="../../common/css/mediaquery.css">
-  <link rel="stylesheet" href="../css/review.css">
   <link rel="stylesheet" href="../../form/css/form.css">
+  <link rel="stylesheet" href="../css/review.css">
+  <link rel="stylesheet" href="../../common/css/mediaquery.css">
 </head>
 
 <body>
@@ -127,11 +127,20 @@
                   <textarea class="h5 pdp__modal-textarea--review textarea" data-bind="review" name="review"
                     id="review"></textarea>
                 </div>
+                <div class="modal__cta review_cta">
+                  <div class="review__button-group review__button-group--text-actions">
+                    <button type='button' class="button button--secondary button--regular" data-char='b'>Bold</button>
+                    <button type='button' class="button button--secondary button--regular"
+                      data-char='i'>Emphasize</button>
+                    <button type='button' class="button button--secondary button--regular" data-char='q'>Quote</button>
+                  </div>
+                  <div class="review__button-group">
+                    <button class="button button--secondary button--regular review__cta--cancel">Cancel</button>
+                    <button class="button button--primary button--regular review__cta--submit" type="submit">Add
+                      review</button>
+                  </div>
+                </div>
               </section>
-              <div class="modal__cta">
-                <button class="button button--secondary button--big review__cta--cancel">Cancel</button>
-                <button class="button button--primary button--big review__cta--submit" type="submit">Submit</button>
-              </div>
             </form>
           </div>
         </template>

@@ -88,6 +88,10 @@
     width: calc(50% - 0.32em);
   }
 
+  .column+.column {
+    margin-top: unset;
+  }
+
   .review__form .form {
     display: flex;
     flex-flow: wrap row;
