@@ -1,6 +1,6 @@
 .review__add {
   text-align: center;
-  color: white;
+  color: var(--default-white);
   margin: 1.5em 0;
 }
 
@@ -19,10 +19,6 @@
   padding: 1em;
 }
 
-.review__preview-username {
-  margin-bottom: 1em;
-}
-
 .review__preview-username span:nth-child(1) {
   color: var(--review-yellow);
 }
@@ -30,6 +26,11 @@
 .row {
   display: flex;
   align-items: start;
+  justify-content: space-between
+}
+
+.row+.row {
+  margin-top: 1em;
 }
 
 .review__preview-image {
@@ -40,10 +41,18 @@
 }
 
 .review__preview-yourreview {
+  width: 100%;
   padding-left: 1em;
-  opacity: 0.5;
   word-break: break-word;
   white-space: pre-wrap;
+}
+
+.review__preview-yourreview--default {
+  opacity: 0.5;
+}
+
+.review__preview-yourreview--notdefault {
+  opacity: 1;
 }
 
 .review__form {
@@ -137,4 +146,39 @@
 
 .review__button-group--text-actions .button+.button {
   margin-left: 1em;
+}
+
+.h--yellow {
+  color: var(--review-yellow);
+}
+
+.review__quote::before {
+  content: '';
+  display: inline-block;
+  background: url(../../../media/svg/quote.png) no-repeat;
+  width: 1em;
+  height: 1em;
+}
+
+.review__quote::after {
+  content: '';
+  display: inline-block;
+  background: url(../../../media/svg/quote.png) no-repeat;
+  transform: translateY(30%) rotate(180deg);
+  width: 1em;
+  height: 1em;
+}
+
+.review__rating {
+  display: flex;
+  align-items: center;
+}
+
+.row--rating {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review__rating .vote {
+  cursor: pointer;
 }

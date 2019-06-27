@@ -90,13 +90,15 @@
 
         <template id="review__template">
           <div class="review__preview">
-            <div class="h5 review__preview-username">By <span data-bind="username">Your Name</span> <span
-                class="review__preview-today"></span> </div>
+            <div class="row">
+              <div class="h5 review__preview-username">By <span data-bind="username">Your Name</span> <span
+                  class="review__preview-today"></span> </div>
+              <div class="preview__rating"></div>
+            </div>
             <div class="row">
               <img class="review__preview-image" data-bind="avatar" src="../../../media/svg/picture.svg">
-              <p class="h5 h--italic review__preview-yourreview" data-bind="review">Start typing and your review
-                text will appear here...
-              </p>
+              <p class="h5 h--italic review__preview-yourreview review__preview-yourreview--default" data-bind="review">
+                Start typing and your review text will appear here...</p>
             </div>
           </div>
           <div class="review__form">
@@ -120,19 +122,30 @@
               </section>
               <section class="column">
                 <div class="form__field">
-                  <p>
+                  <div class="row row--rating">
                     <label class="h3" for="review">Write your review:</label>
-                    <span>Rate Product:</span>
-                  </p>
+                    <div class="review__rating">
+                      <span>Rate Product:</span>
+                      <ul class="caption__vote">
+                        <li class="vote vote--empty"></li>
+                        <li class="vote vote--empty"></li>
+                        <li class="vote vote--empty"></li>
+                        <li class="vote vote--empty"></li>
+                        <li class="vote vote--empty"></li>
+                      </ul>
+                    </div>
+                  </div>
                   <textarea class="h5 pdp__modal-textarea--review textarea" data-bind="review" name="review"
                     id="review"></textarea>
                 </div>
                 <div class="modal__cta review_cta">
                   <div class="review__button-group review__button-group--text-actions">
-                    <button type='button' class="button button--secondary button--regular" data-char='b'>Bold</button>
-                    <button type='button' class="button button--secondary button--regular"
-                      data-char='i'>Emphasize</button>
-                    <button type='button' class="button button--secondary button--regular" data-char='q'>Quote</button>
+                    <button type='button' class="button button--secondary button--regular" data-char='b'
+                      data-parse="<span class='h--bold h--yellow'>">Bold</button>
+                    <button type='button' class="button button--secondary button--regular" data-char='i'
+                      data-parse="<span class='h--italic h--yellow'>">Emphasize</button>
+                    <button type='button' class="button button--secondary button--regular" data-char='q'
+                      data-parse="<span class='h1 review__quote'>">Quote</button>
                   </div>
                   <div class="review__button-group">
                     <button class="button button--secondary button--regular review__cta--cancel">Cancel</button>

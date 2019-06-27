@@ -14,8 +14,7 @@ document.querySelector('.review__add a').addEventListener('click', event => {
   document.querySelectorAll('.review__button-group--text-actions .button').forEach(element => {
     element.addEventListener('click', event => {
       event.preventDefault();
-      console.log('lsflsj');
-      const reviewCommentElement = document.querySelector('.pdp__modal-textarea--review');
+      let reviewCommentElement = document.querySelector('.pdp__modal-textarea--review');
       let startPos = reviewCommentElement.selectionStart;
       let endPos = reviewCommentElement.selectionEnd;
       let commentText = reviewCommentElement.value;
@@ -25,12 +24,54 @@ document.querySelector('.review__add a').addEventListener('click', event => {
       commentText = [commentText.slice(0, endPos), tagClose, commentText.slice(endPos)].join('');
       commentText = [commentText.slice(0, startPos), tagOpen, commentText.slice(startPos)].join('');
       console.log(commentText);
-      reviewCommentElement.innerHTML = commentText;
+      reviewCommentElement.value = commentText;
       console.log(startPos + ", " + endPos);
+      bindPreviewElements(reviewCommentElement);
       // moveCursorToEnd(reviewCommentElement);
       // reviewCommentElement.selectionStart = reviewCommentElement.selectionEnd = reviewCommentElement.value.length;
       return;
     });
+  });
+
+  document.querySelectorAll('.review__rating .vote').forEach(element => {
+
+    // element.addEventListener('mouseover', event => {
+    //   for (let elementSibling = event.target.previousElementSibling; elementSibling; elementSibling = elementSibling.previousElementSibling) {
+    //     elementSibling.classList.remove('vote--empty');
+    //     elementSibling.classList.add('vote--full');
+    //   }
+    //   event.target.classList.remove('vote--empty');
+    //   event.target.classList.add('vote--full');
+    // });
+
+    // element.addEventListener('mouseleave', event => {
+    //   for (const voteElement of event.target.parentElement.children) {
+    //     voteElement.classList.remove('vote--full');
+    //     voteElement.classList.add('vote--empty');
+    //   }
+    // });
+
+    element.addEventListener('click', event => {
+      for (let elementSibling = event.target.nextElementSibling; elementSibling; elementSibling = elementSibling.nextElementSibling) {
+        elementSibling.classList.remove('vote--full');
+        elementSibling.classList.add('vote--empty');
+      }
+      for (let elementSibling = event.target.previousElementSibling; elementSibling; elementSibling = elementSibling.previousElementSibling) {
+        elementSibling.classList.remove('vote--empty');
+        elementSibling.classList.add('vote--full');
+      }
+      event.target.classList.remove('vote--empty');
+      event.target.classList.add('vote--full');
+
+      const voteUlElement = event.target.parentElement.cloneNode(true);
+
+      const previewRatingElem = document.querySelector('.preview__rating');
+
+      previewRatingElem.innerHTML = '';
+      previewRatingElem.append(voteUlElement);
+
+    });
+
   });
 });
 
@@ -121,12 +162,19 @@ function bindPreviewElements(element) {
   const bindClass = element.dataset.bind || undefined;
 
   if (bindClass) {
-    document.querySelectorAll(`[data-bind="${bindClass}"]`).forEach(elem => {
+    document.querySelectorAll(`.review__preview [data-bind="${bindClass}"]`).forEach(elemPreview => {
       if (imgUrl) {
-        elem.src = imgUrl
+        elemPreview.src = imgUrl
       } else {
-        elem.innerHTML = element.value;
+        elemPreview.innerHTML = parseTextForPreview(element.value);
       }
+
+      if (bindClass == 'review') {
+        elemPreview.classList.remove('h--italic');
+        elemPreview.classList.remove('review__preview-yourreview--default');
+        elemPreview.classList.add('review__preview-yourreview--notdefault');
+      }
+
     })
   }
 }
@@ -135,4 +183,37 @@ function removeBindingFromChildren(parent) {
   parent.querySelectorAll('[data-bind]').forEach(element => {
     element.removeAttribute('data-bind');
   })
+}
+
+function parseTextForPreview(text) {
+  const charsReference = getAllCharsReference();
+  charsReference.forEach((parse, char) => {
+
+    const tagOpen = `[${char}]`;
+    const tagClose = `[/${char}]`;
+
+    let pos = 0;
+    while (true) {
+      if ((pos = text.indexOf(tagClose)) != -1) {
+        const head = text.slice(0, pos)
+        const tail = text.slice(pos + 4);
+        text = `${head}</span>${tail}`;
+      } else if ((pos = text.indexOf(tagOpen)) != -1) {
+        const head = text.slice(0, pos)
+        const tail = text.slice(pos + 3);
+        text = `${head}${parse}${tail}`;
+      } else {
+        break;
+      }
+    }
+  });
+  return text;
+}
+
+function getAllCharsReference() {
+  let chars = new Map();
+  document.querySelectorAll('[data-char]').forEach(element => {
+    chars.set(element.dataset.char, element.dataset.parse);
+  })
+  return chars;
 }
