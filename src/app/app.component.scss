@@ -1,8 +1,7 @@
 .pagecontent {
-  position: fixed;
-  top:45px;
-  width: 1461px;
-  height: 600px;
+  // min-height: 100vh;
+  height: 100%;
   background-image: url("/assets/pagecontent/bg.jpg");
+  // background-attachment:fixed;
   background-repeat: repeat;
 }
