@@ -11,68 +11,6 @@ document.querySelector('.review__add a').addEventListener('click', event => {
 
   setCancelAction();
 
-  document.querySelectorAll('.review__button-group--text-actions .button').forEach(element => {
-    element.addEventListener('click', event => {
-      event.preventDefault();
-      let reviewCommentElement = document.querySelector('.pdp__modal-textarea--review');
-      let startPos = reviewCommentElement.selectionStart;
-      let endPos = reviewCommentElement.selectionEnd;
-      let commentText = reviewCommentElement.value;
-      console.log(commentText);
-      const tagOpen = `[${event.target.dataset.char}]`;
-      const tagClose = `[/${event.target.dataset.char}]`;
-      commentText = [commentText.slice(0, endPos), tagClose, commentText.slice(endPos)].join('');
-      commentText = [commentText.slice(0, startPos), tagOpen, commentText.slice(startPos)].join('');
-      console.log(commentText);
-      reviewCommentElement.value = commentText;
-      console.log(startPos + ", " + endPos);
-      bindPreviewElements(reviewCommentElement);
-      // moveCursorToEnd(reviewCommentElement);
-      // reviewCommentElement.selectionStart = reviewCommentElement.selectionEnd = reviewCommentElement.value.length;
-      return;
-    });
-  });
-
-  document.querySelectorAll('.review__rating .vote').forEach(element => {
-
-    // element.addEventListener('mouseover', event => {
-    //   for (let elementSibling = event.target.previousElementSibling; elementSibling; elementSibling = elementSibling.previousElementSibling) {
-    //     elementSibling.classList.remove('vote--empty');
-    //     elementSibling.classList.add('vote--full');
-    //   }
-    //   event.target.classList.remove('vote--empty');
-    //   event.target.classList.add('vote--full');
-    // });
-
-    // element.addEventListener('mouseleave', event => {
-    //   for (const voteElement of event.target.parentElement.children) {
-    //     voteElement.classList.remove('vote--full');
-    //     voteElement.classList.add('vote--empty');
-    //   }
-    // });
-
-    element.addEventListener('click', event => {
-      for (let elementSibling = event.target.nextElementSibling; elementSibling; elementSibling = elementSibling.nextElementSibling) {
-        elementSibling.classList.remove('vote--full');
-        elementSibling.classList.add('vote--empty');
-      }
-      for (let elementSibling = event.target.previousElementSibling; elementSibling; elementSibling = elementSibling.previousElementSibling) {
-        elementSibling.classList.remove('vote--empty');
-        elementSibling.classList.add('vote--full');
-      }
-      event.target.classList.remove('vote--empty');
-      event.target.classList.add('vote--full');
-
-      const voteUlElement = event.target.parentElement.cloneNode(true);
-
-      const previewRatingElem = document.querySelector('.preview__rating');
-
-      previewRatingElem.innerHTML = '';
-      previewRatingElem.append(voteUlElement);
-
-    });
-
-  });
 });
 
 function setCancelAction() {
@@ -136,6 +74,16 @@ function getMonthNameByIndex(index) {
 }
 
 function setBindForPreview() {
+
+  setBindForInputFile();
+
+  setBindForRating();
+
+  setBindForM();
+
+}
+
+function setBindForInputFile() {
   document.querySelector('.review__form').addEventListener('keyup', event => {
     bindPreviewElements(event.target);
   });
@@ -146,6 +94,64 @@ function setBindForPreview() {
 
   document.querySelector('.review__form').addEventListener('change', event => {
     bindPreviewElements(event.target);
+  });
+}
+
+function setBindForRating() {
+  document.querySelectorAll('.review__rating .vote').forEach(element => {
+
+    element.addEventListener('click', event => {
+
+      for (let elementSibling = event.target.nextElementSibling; elementSibling; elementSibling = elementSibling.nextElementSibling) {
+        voteRemove(elementSibling);
+      }
+      for (let elementSibling = event.target.previousElementSibling; elementSibling; elementSibling = elementSibling.previousElementSibling) {
+        voteAdd(elementSibling);
+      }
+      voteAdd(event.target);
+
+      const voteUlElement = event.target.parentElement.cloneNode(true);
+      const previewRatingElem = document.querySelector('.preview__rating');
+      previewRatingElem.innerHTML = '';
+      previewRatingElem.append(voteUlElement);
+
+    });
+  });
+}
+
+function voteAdd(voteElement) {
+  voteElement.classList.remove('vote--empty');
+  voteElement.classList.add('vote--full');
+}
+
+function voteRemove(voteElement) {
+  voteElement.classList.remove('vote--full');
+  voteElement.classList.add('vote--empty');
+}
+
+function setBindForM() {
+  document.querySelectorAll('.review__button-group--text-actions .button').forEach(element => {
+    element.addEventListener('click', event => {
+
+      event.preventDefault();
+
+      let reviewCommentElement = document.querySelector('.pdp__modal-textarea--review');
+
+      let startPos = reviewCommentElement.selectionStart;
+      let endPos = reviewCommentElement.selectionEnd;
+
+      let commentText = reviewCommentElement.value;
+
+      const tagOpen = `[${event.target.dataset.char}]`;
+      const tagClose = `[/${event.target.dataset.char}]`;
+
+      commentText = [commentText.slice(0, endPos), tagClose, commentText.slice(endPos)].join('');
+      commentText = [commentText.slice(0, startPos), tagOpen, commentText.slice(startPos)].join('');
+
+      reviewCommentElement.value = commentText;
+
+      bindPreviewElements(reviewCommentElement);
+    });
   });
 }
 
