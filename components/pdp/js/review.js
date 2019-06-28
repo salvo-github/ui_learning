@@ -75,7 +75,7 @@ function getMonthNameByIndex(index) {
 
 function setBindForPreview() {
 
-  setBindForInputFile();
+  setBindForInputField();
 
   setBindForRating();
 
@@ -83,16 +83,8 @@ function setBindForPreview() {
 
 }
 
-function setBindForInputFile() {
-  document.querySelector('.review__form').addEventListener('keyup', event => {
-    bindPreviewElements(event.target);
-  });
-
-  document.querySelector('.review__form').addEventListener('keydown', event => {
-    bindPreviewElements(event.target);
-  });
-
-  document.querySelector('.review__form').addEventListener('change', event => {
+function setBindForInputField() {
+  document.querySelector('.review__form').addEventListener('input', event => {
     bindPreviewElements(event.target);
   });
 }
