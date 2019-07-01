@@ -1,0 +1,11 @@
+<button (click)="onDisplayDetails()">Display Details</button>
+<p *ngIf="displayDetails">Secret Password = tuna</p>
+<ul>
+  <li
+    *ngFor="let item of dispalyDetailsClick; let i = index"
+    [ngStyle]="{ backgroundColor: i > 5 ? 'blue' : '' }"
+    [className]="'datetime--white'"
+  >
+    {{ item }}
+  </li>
+</ul>

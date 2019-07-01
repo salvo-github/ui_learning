@@ -1,4 +1,12 @@
-<app-success-alert></app-success-alert>
-<app-warning-alert></app-warning-alert>
-
-<router-outlet></router-outlet>
+<app-header
+  (showRecipes)="showRecipes()"
+  (showShoppingList)="showShoppingList()"
+></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-recipes *ngIf="showre == true"></app-recipes>
+      <app-shopping-list *ngIf="showsl == true"></app-shopping-list>
+    </div>
+  </div>
+</div>
