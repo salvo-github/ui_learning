@@ -14,7 +14,7 @@ export class RecipeService {
       [
         new Ingredient('apple', 1),
         new Ingredient('banana', 2),
-        new Ingredient('yogurt', 3),
+        new Ingredient('yogurt', 3)
       ]
     ),
     new Recipe(
@@ -24,14 +24,19 @@ export class RecipeService {
       [
         new Ingredient('apple', 1),
         new Ingredient('banana', 2),
-        new Ingredient('yogurt', 3),
+        new Ingredient('yogurt', 3)
       ]
     )
   ];
 
-  getRecipe() {
+  constructor() {}
+
+  getRecipes() {
     return this.recipes.slice();
   }
 
-  constructor() {}
+  getRecipe(index: number): Recipe {
+    return this.recipes[index];
+    // return JSON.parse(JSON.stringify(this.recipes[index]));
+  }
 }
