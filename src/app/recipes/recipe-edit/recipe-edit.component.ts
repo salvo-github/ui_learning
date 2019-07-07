@@ -1,31 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
-import { Ingredient } from 'src/app/shared/ingredient.model';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
-  styleUrls: ['./recipe-edit.component.scss']
+  styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
-  recipe: Recipe;
   id: number;
+  editMode = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private recipeService: RecipeService
-  ) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.get('id') !== null) {
-        this.id = +paramMap.get('id');
-        this.recipe = this.recipeService.getRecipe(this.id);
-      } else {
-        // this.recipe = new Recipe();
-      }
-    });
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.editMode = params['id'] != null;
+        }
+      );
   }
+
 }

@@ -3,20 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = 'course';
-  showre: boolean = true;
-  showsl: boolean = false;
+  loadedFeature = 'recipe';
 
-  showRecipes() {
-    this.showre = true;
-    this.showsl = false;
-  }
-
-  showShoppingList() {
-    this.showre = false;
-    this.showsl = true;
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
 }
