@@ -1,137 +1,174 @@
-customElements.define("simple-slider", class extends HTMLElement {
+/**
+ * Example
+ *
+ * ```html
+ * <simple-slider class="pdp__card--slider" data-watermark='Demo Shop'>
+ * <img src="../../../media/products/1.jpg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duisscelerisque</img>
+ * <img src="../../../media/products/2.jpg">eros ac vehicula tristique. Nam consecteturligula sed neque volutpat,</img>
+ * <img src="../../../media/products/3.jpg">nec molestie nunc malesuada. Duis tortor nisi, efficitur utmolestie.</img>
+ * </simple-slider>
+ * ```
+ */
+customElements.define(
+  'simple-slider',
+  class extends HTMLElement {
+    // the index of the current image to load
+    index;
+    // the links and the captions for every image tag added inside the custom tag slimple-slider
+    links;
+    // element in the shadow dom where the current image will be loaded
+    imgElement;
 
-  constructor() {
-    super();
+    constructor() {
+      super();
 
-    const shadow = this.attachShadow({ mode: 'open' });
-    shadow.innerHTML = this.getTemplate();
+      const shadow = this.attachShadow({ mode: 'open' });
+      shadow.innerHTML = this.getTemplate();
+    }
 
-    this.links = [];
-    this.index;
-  }
+    init() {
+      this.imgElement = this.shadowRoot.querySelector(
+        'img.simple-slider__image'
+      );
 
-  init() {
+      this.initLinks();
 
-    this.imgElement = this.shadowRoot.querySelector('img.simple-slider__image');
+      if (this.links.length) {
+        this.initIndex();
+      }
 
-    this.initLinks();
+      this.initWatermark();
+    }
 
-    if (this.links.length) {
+    connectedCallback() {
+      this.init();
+
+      this.shadowRoot
+        .querySelectorAll('.simple-slider__control span')
+        .forEach((element) => {
+          element.addEventListener('click', (event) => {
+            /**
+             * used to change the index fo the image to show and set the initial position for the
+             * sliding caption
+             */
+            if (
+              event.target.parentElement.classList.contains(
+                'simple-slider__control--prev'
+              )
+            ) {
+              this.switchIndexByOffset(-1);
+              this.setCaptionStartingPosition('left');
+            } else {
+              this.setCaptionStartingPosition('right');
+              this.switchIndexByOffset(1);
+            }
+
+            this.resetImgEffect('simple-slider__image--fade');
+            this.reloadImagebyCurrentIndex();
+            this.renderCaptionByCurrentIndex();
+          });
+        });
+    }
+
+    initLinks() {
+      this.links = [];
+
+      this.querySelectorAll('img').forEach((element) => {
+        const img = {
+          src: element.src,
+          caption: element.nextSibling.data
+        };
+
+        this.links.push(img);
+      });
+    }
+
+    initIndex() {
+      //current index
       this.index = 0;
       this.reloadImagebyCurrentIndex();
       this.renderCaptionByCurrentIndex();
     }
 
-    this.initWatermark();
-  }
-
-  connectedCallback() {
-
-    this.init();
-
-    this.shadowRoot.querySelectorAll('.simple-slider__control span').forEach(element => {
-      element.addEventListener('click', event => {
-
-        if (event.target.parentElement.classList.contains('simple-slider__control--prev')) {
-          this.switchIndexByOffset(-1);
-          this.setCaptionStartingPosition('left');
-        } else {
-          this.setCaptionStartingPosition('right');
-          this.switchIndexByOffset(1);
-        }
-
-        this.resetImgEffect('simple-slider__image--fade');
-        this.reloadImagebyCurrentIndex();
-        this.renderCaptionByCurrentIndex();
-      });
-    });
-  }
-
-  initWatermark() {
-    if (this.dataset.watermark) {
-      this.shadowRoot.querySelector('.simple-slider__watermark').textContent = this.dataset.watermark;
-    }
-  }
-
-  setCaptionStartingPosition(position) {
-
-    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__caption');
-
-    let watermarkStartingCoord;
-    if (position == 'left') {
-      watermarkStartingCoord = (0 - watermarkElement.offsetWidth) + 'px';
-    } else {
-      watermarkStartingCoord = '100%';
+    initWatermark() {
+      if (this.dataset.watermark) {
+        this.shadowRoot.querySelector(
+          '.simple-slider__watermark'
+        ).textContent = this.dataset.watermark;
+      }
     }
 
-    watermarkElement.style.cssText = '';
+    setCaptionStartingPosition(position) {
+      const captionElement = this.shadowRoot.querySelector(
+        '.simple-slider__caption'
+      );
 
-    watermarkElement.style.left = watermarkStartingCoord;
-    watermarkElement.style.transform = 'translate(0)';
-    return;
-  }
+      /**
+       * The caption must be moved outside the image before the animation start
+       *
+       * If the initial position of the caption it's for example LEFT, the rigth side of the caption box
+       * will be positioned before the right side of the image (caption elment and image element have the same width)
+       */
+      let captionStartingCoord;
+      if (position === 'left') {
+        captionStartingCoord = 0 - captionElement.offsetWidth + 'px';
+      } else {
+        captionStartingCoord = '100%';
+      }
 
-  renderCaptionByCurrentIndex() {
+      captionElement.style.cssText = '';
 
-    const watermarkElement = this.shadowRoot.querySelector('.simple-slider__caption');
+      captionElement.style.left = captionStartingCoord;
+      captionElement.style.transform = 'translate(0)';
+    }
 
-    watermarkElement.textContent = this.links[this.index].caption;
+    renderCaptionByCurrentIndex() {
+      const captionElement = this.shadowRoot.querySelector(
+        '.simple-slider__caption'
+      );
 
-    // reset animation
-    void watermarkElement.offsetWidth;
+      captionElement.textContent = this.links[this.index].caption;
 
-    watermarkElement.style.transition = `all 1s`;
+      // reset animation
+      //https://css-tricks.com/restart-css-animation/
+      void captionElement.offsetWidth;
 
-    watermarkElement.style.left = '';
-    watermarkElement.style.transform = '';
-  }
+      captionElement.style.transition = `all 1s`;
 
-  resetImgEffect(effectClass = '') {
-    this.imgElement.classList.remove(effectClass);
-    //https://css-tricks.com/restart-css-animation/
-    void this.imgElement.offsetWidth;
-    this.imgElement.classList.add(effectClass);
-  }
+      captionElement.style.left = '';
+      captionElement.style.transform = '';
+    }
 
-  startAutoplay() {
-    this.autoplay = setInterval(() => {
-      this.switchIndexByOffset(1);
-      this.reloadImagebyCurrentIndex();
-    }, 2000);
-  }
+    resetImgEffect(effectClass = '') {
+      this.imgElement.classList.remove(effectClass);
 
-  switchIndexByOffset(offset) {
-    // jsbug https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.html
-    return this.index = ((this.index + this.links.length + offset) % this.links.length);
-  }
+      // reset animation
+      //https://css-tricks.com/restart-css-animation/
+      void this.imgElement.offsetWidth;
 
-  reloadImagebyCurrentIndex() {
-    const src = this.links[this.index].src;
-    this.imgElement.src = src;
-    return;
-  }
+      this.imgElement.classList.add(effectClass);
+    }
 
-  initLinks() {
-    this.querySelectorAll('img').forEach(element => {
+    switchIndexByOffset(offset) {
+      // jsbug https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.html
+      this.index =
+        (this.index + this.links.length + offset) % this.links.length;
+    }
 
-      const img = {
-        src: element.src,
-        caption: element.nextSibling.data
-      };
+    reloadImagebyCurrentIndex() {
+      const src = this.links[this.index].src;
+      this.imgElement.src = src;
+    }
 
-      this.links.push(img);
-    });
-  }
-
-  getTemplate() {
-    return `
+    getTemplate() {
+      return `
       ${this.getTemplateCss()}
       ${this.getTemplateHtml()}
     `;
-  }
+    }
 
-  getTemplateHtml() {
-    return `
+    getTemplateHtml() {
+      return `
       <div class="simple-slider__control simple-slider__control--prev" prev>
         <span></span>
       </div>
@@ -142,10 +179,10 @@ customElements.define("simple-slider", class extends HTMLElement {
         <span></span>
       </div>
     `;
-  }
+    }
 
-  getTemplateCss() {
-    return `
+    getTemplateCss() {
+      return `
       <style>
         :host {
           /* prevent selection with multiple clicks */
@@ -272,5 +309,6 @@ customElements.define("simple-slider", class extends HTMLElement {
         }
       </style>
     `;
+    }
   }
-});
+);

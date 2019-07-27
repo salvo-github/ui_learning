@@ -26,10 +26,10 @@
 .row {
   display: flex;
   align-items: start;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
-.row+.row {
+.row + .row {
   margin-top: 1em;
 }
 
@@ -47,11 +47,11 @@
   white-space: pre-wrap;
 }
 
-.review__preview-yourreview--default {
+.review__preview-yourreview--default-text {
   opacity: 0.5;
 }
 
-.review__preview-yourreview--notdefault {
+.review__preview-yourreview--input-text {
   opacity: 1;
 }
 
@@ -97,7 +97,7 @@
   z-index: -1;
 }
 
-.pdp__modal-textarea--avatar+label {
+.pdp__modal-textarea--avatar + label {
   height: 6.3em;
   padding: 0.69em;
   display: flex;
@@ -106,11 +106,11 @@
   cursor: pointer;
 }
 
-.pdp__modal-textarea--avatar+label span {
+.pdp__modal-textarea--avatar + label span {
   opacity: 0.5;
 }
 
-.pdp__modal-textarea--avatar+label img {
+.pdp__modal-textarea--avatar + label img {
   max-width: 4.81em;
   max-height: 4.81em;
   opacity: 0.5;
@@ -144,7 +144,7 @@
   margin-top: 1em;
 }
 
-.review__button-group--text-actions .button+.button {
+.review__button-group--text-actions .button + .button {
   margin-left: 1em;
 }
 

@@ -4,10 +4,6 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
-.h--caption {
-  font-family: 'PT Sans Caption', 'PT Sans', sans-serif;
-}
-
 .h1 {
   font-size: 1.5em;
   line-height: 1.44em;
@@ -38,22 +34,26 @@ body {
   line-height: 1.19em;
 }
 
-.h--italic {
+.font__style--font-family--caption {
+  font-family: 'PT Sans Caption', 'PT Sans', sans-serif;
+}
+
+.font__style--italic {
   font-style: italic;
 }
 
-.h--smaller {
+.font__style--smaller {
   font-size: smaller;
 }
 
-.h--lighter {
+.font__style--weight-lighter {
   font-weight: lighter;
 }
 
-.h--bold {
+.font__style--weight-bold {
   font-weight: bold;
 }
 
-.h--center {
+.font__style--center {
   text-align: center;
 }

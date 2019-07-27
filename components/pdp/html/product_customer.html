@@ -22,7 +22,7 @@
         <div class="header__logo">
         </div>
         <div class="header__login">
-          <p class="h4 header__login-status header__login-status--logged">Hello, <span class="h--italic">John_Doe</span>
+          <p class="h4 header__login-status header__login-status--logged">Hello, <span class="font__style--italic">John_Doe</span>
           </p>
         </div>
       </div>
@@ -30,9 +30,9 @@
 
     <div class="main">
       <div class="main__content">
-        <nav class="h3 h--bold navigation">
+        <nav class="h3 font__style--weight-bold navigation">
           <p class="navigation__back">Back</p>
-          <p class="navigation__category"><span class="h--lighter">Category: </span>Man / Active wear</p>
+          <p class="navigation__category"><span class="font__style--weight-lighter">Category: </span>Man / Active wear</p>
         </nav>
 
         <div class="pdp__card">
@@ -59,7 +59,7 @@
             </figure>
             <section class="card__info">
               <div class="card__info-group">
-                <h2 class="h2 h--bold card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+                <h2 class="h2 font__style--weight-bold card__info-title">Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
                   Adipisicing Elit.3</h2>
                 <p class="h3 card__info-desc">Lorem ipsum dolor sit amet, consectetur
                   adipisicing elit. Adipisci aperiam, libero aliquid architecto ad quis maiores sit nulla officiis ex
@@ -67,8 +67,8 @@
                   consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
               </div>
               <div class="card__cta">
-                <p class="h1 h--bold  card__info-price">47.95 <span
-                    class="h--lighter h--smaller card__info-price--extra">(9
+                <p class="h1 font__style--weight-bold  card__info-price">47.95 <span
+                    class="font__style--weight-lighter font__style--smaller card__info-price--extra">(9
                     items left)</span></p>
                 <button class="button button--primary button--regular"
                   onclick="return toggleDisplay('modal__buy');"><span class="h5">Buy</span></button>
@@ -97,13 +97,13 @@
             </div>
             <div class="row">
               <img class="review__preview-image" data-bind="avatar" src="../../../media/svg/picture.svg">
-              <p class="h5 h--italic review__preview-yourreview review__preview-yourreview--default" data-bind="review">
+              <p class="h5 font__style--italic review__preview-yourreview review__preview-yourreview--default-text" data-bind="review">
                 Start typing and your review text will appear here...</p>
             </div>
           </div>
           <div class="review__form">
             <div class="review__form-title">
-              <h2 class="h5 h--bold">Edit Your Review</h2>
+              <h2 class="h5 font__style--weight-bold">Edit Your Review</h2>
             </div>
             <form class="form" action="">
               <section class="column">
@@ -115,7 +115,7 @@
                   <p class="h3">Choose your avatar:</p>
                   <input type="file" class="pdp__modal-textarea--avatar" data-bind="avatar" name="avatar"
                     id="avatar"></input>
-                  <label class="h5 h--italic textarea" for="avatar">
+                  <label class="h5 font__style--italic textarea" for="avatar">
                     <span>Image not selected</span><img src="../../../media/svg/pickup.svg" alt="">
                   </label>
                 </div>
@@ -141,11 +141,11 @@
                 <div class="modal__cta review_cta">
                   <div class="review__button-group review__button-group--text-actions">
                     <button type='button' class="button button--secondary button--regular" data-char='b'
-                      data-parse="<span class='h--bold h--yellow'>">Bold</button>
+                      data-class-list-parse="font__style--weight-bold h--yellow">Bold</button>
                     <button type='button' class="button button--secondary button--regular" data-char='i'
-                      data-parse="<span class='h--italic h--yellow'>">Emphasize</button>
+                      data-class-list-parse="font__style--italic h--yellow">Emphasize</button>
                     <button type='button' class="button button--secondary button--regular" data-char='q'
-                      data-parse="<span class='h1 review__quote'>">Quote</button>
+                      data-class-list-parse="h1 review__quote">Quote</button>
                   </div>
                   <div class="review__button-group">
                     <button class="button button--secondary button--regular review__cta--cancel">Cancel</button>
@@ -168,11 +168,11 @@
   </div>
   <div class="modal element--close" id="modal__buy">
     <div class="modal__header">
-      <h2 class="h2--bigger h--bold h--caption modal__title--elipsis">Thank you!</h2>
+      <h2 class="h2--bigger font__style--weight-bold font__style--font-family--caption modal__title--elipsis">Thank you!</h2>
     </div>
     <div class="modal__body">
       <div class="modal__main">
-        <p class="h1 h--caption h--center">You successfully purchased this item.</p>
+        <p class="h1 font__style--font-family--caption font__style--center">You successfully purchased this item.</p>
       </div>
       <div class="modal__cta">
         <button class="button button--primary button--big" onclick="return toggleDisplay('modal__buy')">Continue
